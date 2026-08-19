@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "divinecomedy:styx_river",
+  "features": "divinecomedy:styx_fluid_placed",
+  "step": "raw_generation"
+}

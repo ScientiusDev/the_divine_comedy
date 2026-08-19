@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "divinecomedy:arid_plains",
+  "spawners": {
+    "type": "divinecomedy:rock_roller",
+    "maxCount": 1,
+    "minCount": 1,
+    "weight": 5
+  }
+}

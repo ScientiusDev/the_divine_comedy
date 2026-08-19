@@ -1,0 +1,39 @@
+{
+  "item.divinecomedy.infernite": "Infernite",
+  "item.divinecomedy.styx_fluid_bucket": "Styx Fluid Bucket",
+  "item.divinecomedy.boiling_blood_bucket": "Bucket of Boiling Blood",
+  "item.divinecomedy.rock_roller_spawn_egg": "Rock Roller Spawn Egg",
+  "item.divinecomedy.virgilager_spawn_egg": "Virgilager Spawn Egg",
+  "item.divinecomedy.cerebus_spawn_egg": "Cerebus Spawn Egg",
+  "item.divinecomedy.crawler_spawn_egg": "Crawler Spawn Egg",
+  "item.divinecomedy.heretic_spawn_egg": "Heretic Spawn Egg",
+  "item.divinecomedy.virtuous_pagan_spawn_egg": "Virtuous Pagan Spawn Egg",
+
+  "block.divinecomedy.infernite_ore": "Infernite Ore",
+  "block.divinecomedy.soul_oak_log": "Soul Oak Log",
+  "block.divinecomedy.soul_oak_wood": "Soul Oak Wood",
+  "block.divinecomedy.stripped_soul_oak_log": "Stripped Soul Oak Log",
+  "block.divinecomedy.stripped_soul_oak_wood": "Stripped Soul Oak Wood",
+  "block.divinecomedy.soul_oak_planks": "Soul Oak Planks",
+  "block.divinecomedy.soul_oak_leaves": "Soul Oak Leaves",
+  "block.divinecomedy.soul_oak_sapling": "Soul Oak Sapling",
+  "block.divinecomedy.burning_coffin": "Burning Coffin",
+  "block.divinecomedy.inferno_exit_portal": "Inferno Exit Portal",
+  "block.divinecomedy.cerebus_boss_block": "Cerebus Boss Block",
+  "block.divinecomedy.geryon_boss_block": "Geryon Boss Block",
+  "block.divinecomedy.dis_boss_block": "Dis Boss Block",
+
+  "fluid_type.divinecomedy.styx_fluid_type": "Styx Fluid",
+  "fluid_type.divinecomedy.boiling_blood_type": "Boiling Blood",
+
+  "entity.divinecomedy.rock_roller": "Rock Roller",
+  "entity.divinecomedy.virgilager": "Virgilager",
+  "entity.divinecomedy.cerebus": "Cerebus",
+  "entity.divinecomedy.crawler": "Crawler",
+  "entity.divinecomedy.heretic": "Heretic",
+  "entity.divinecomedy.virtuous_pagan": "Virtuous Pagan",
+
+  "creativetab.divinecomedy.divine_comedy": "Divine Comedy",
+
+  "divinecomedy.confugrations.descendOnDeath": "Descend on Death"
+}

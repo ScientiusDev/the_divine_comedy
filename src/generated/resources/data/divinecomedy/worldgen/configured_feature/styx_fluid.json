@@ -1,0 +1,13 @@
+{
+  "type": "divinecomedy:air_fill",
+  "config": {
+    "fluid_state": {
+      "Name": "divinecomedy:styx_fluid_block",
+      "Properties": {
+        "level": "0"
+      }
+    },
+    "max_y": 136,
+    "min_y": 128
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "divinecomedy:wood_of_suicides",
+  "features": "divinecomedy:boiling_blood_placed",
+  "step": "raw_generation"
+}

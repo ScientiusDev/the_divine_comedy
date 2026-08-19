@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "divinecomedy:stairway_from_limbo",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 32,
+    "separation": 8,
+    "salt": 14789623
+  }
+}

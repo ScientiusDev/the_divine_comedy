@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "divinecomedy:item/virtuous_pagan_spawn_egg"
+  }
+}

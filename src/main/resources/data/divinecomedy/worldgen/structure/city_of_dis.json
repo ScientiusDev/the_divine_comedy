@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "#divinecomedy:has_structure/just_sixth_layer_biome",
+  "start_pool": "divinecomedy:dis/start_pool",
+  "size": 2,
+  "max_distance_from_center": 100,
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "terrain_adaptation": "beard_thin",
+  "use_expansion_hack": false,
+  "start_height": {
+    "type": "constant",
+    "value": {
+      "absolute": 113
+    }
+  }
+}

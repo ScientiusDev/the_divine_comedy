@@ -1,0 +1,15 @@
+{
+  "name": "divinecomedy:giant_statue",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "divinecomedy:giant_statue",
+        "processors": "minecraft:mossify_10_percent",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "divinecomedy:block/stripped_soul_oak_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "divinecomedy:block/stripped_soul_oak_log"
+    },
+    "axis=z": {
+      "model": "divinecomedy:block/stripped_soul_oak_log_horizontal",
+      "x": 90
+    }
+  }
+}

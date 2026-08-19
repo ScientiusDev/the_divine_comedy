@@ -1,0 +1,39 @@
+{
+  "attributes": {
+    "minecraft:visual/fog_color": "#96ecf2"
+  },
+  "carvers": [],
+  "downfall": 0.7,
+  "effects": {
+    "foliage_color": "#0c9999",
+    "grass_color": "#0c9999",
+    "water_color": "#3f76e4"
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "divinecomedy:soul_oak_tree_placed"
+    ]
+  ],
+  "has_precipitation": false,
+  "spawn_costs": {},
+  "spawners": {
+    "ambient": [],
+    "axolotls": [],
+    "creature": [],
+    "misc": [],
+    "monster": [],
+    "underground_water_creature": [],
+    "water_ambient": [],
+    "water_creature": []
+  },
+  "temperature": 1.2
+}

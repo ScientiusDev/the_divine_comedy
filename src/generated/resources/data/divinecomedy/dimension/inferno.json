@@ -1,0 +1,57 @@
+{
+  "type": "divinecomedy:inferno_type",
+  "generator": {
+    "type": "minecraft:noise",
+    "biome_source": {
+      "type": "divinecomedy:y_level_biomes",
+      "layers": [
+        {
+          "biome": "divinecomedy:limbo",
+          "max_y": 288,
+          "min_y": 256
+        },
+        {
+          "biome": "divinecomedy:lusting_cliffs",
+          "max_y": 256,
+          "min_y": 224
+        },
+        {
+          "biome": "divinecomedy:gluttonous_caverns",
+          "max_y": 224,
+          "min_y": 192
+        },
+        {
+          "biome": "divinecomedy:arid_plains",
+          "max_y": 192,
+          "min_y": 160
+        },
+        {
+          "biome": "divinecomedy:styx_river",
+          "max_y": 160,
+          "min_y": 128
+        },
+        {
+          "biome": "divinecomedy:dis_biome",
+          "max_y": 128,
+          "min_y": 96
+        },
+        {
+          "biome": "divinecomedy:wood_of_suicides",
+          "max_y": 96,
+          "min_y": 64
+        },
+        {
+          "biome": "divinecomedy:bolgia",
+          "max_y": 64,
+          "min_y": 32
+        },
+        {
+          "biome": "divinecomedy:frozen_depths",
+          "max_y": 32,
+          "min_y": 0
+        }
+      ]
+    },
+    "settings": "divinecomedy:inferno"
+  }
+}

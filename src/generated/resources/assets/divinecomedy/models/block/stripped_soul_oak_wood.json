@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "divinecomedy:block/stripped_soul_oak_log",
+    "side": "divinecomedy:block/stripped_soul_oak_log"
+  }
+}

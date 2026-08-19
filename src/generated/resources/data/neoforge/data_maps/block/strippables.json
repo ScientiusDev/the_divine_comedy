@@ -1,0 +1,10 @@
+{
+  "values": {
+    "divinecomedy:soul_oak_log": {
+      "stripped_block": "divinecomedy:stripped_soul_oak_log"
+    },
+    "divinecomedy:soul_oak_wood": {
+      "stripped_block": "divinecomedy:stripped_soul_oak_wood"
+    }
+  }
+}

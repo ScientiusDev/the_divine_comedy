@@ -1,0 +1,13 @@
+{
+  "type": "divinecomedy:air_fill",
+  "config": {
+    "fluid_state": {
+      "Name": "divinecomedy:boiling_blood_block",
+      "Properties": {
+        "level": "0"
+      }
+    },
+    "max_y": 72,
+    "min_y": 64
+  }
+}

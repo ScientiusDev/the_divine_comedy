@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "divinecomedy:gluttonous_caverns",
+  "spawners": {
+    "type": "divinecomedy:crawler",
+    "maxCount": 1,
+    "minCount": 1,
+    "weight": 5
+  }
+}
