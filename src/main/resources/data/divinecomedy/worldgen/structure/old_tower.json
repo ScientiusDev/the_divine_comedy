@@ -1,7 +1,7 @@
 {
   "type": "minecraft:jigsaw",
-  "biomes": "#divinecomedy:has_structure/stairway_from_limbo_biomes",
-  "start_pool": "divinecomedy:stairway_from_limbo_pool",
+  "biomes": "#divinecomedy:has_structure/just_third_layer_biome",
+  "start_pool": "divinecomedy:old_tower_pool",
   "size": 1,
   "max_distance_from_center": 80,
   "spawn_overrides": {},
@@ -11,7 +11,7 @@
   "start_height": {
     "type": "constant",
     "value": {
-      "absolute": 230
+      "absolute": 198
     }
   }
 }

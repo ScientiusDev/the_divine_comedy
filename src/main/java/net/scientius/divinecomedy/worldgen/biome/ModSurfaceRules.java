@@ -39,7 +39,7 @@ public class ModSurfaceRules {
     }
 
 
-    public static SurfaceRules.RuleSource makeLustingCliffsRules() {
+    public static SurfaceRules.RuleSource makeWhirlingWastelandsRules() {
 
         return SurfaceRules.sequence(
                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, PALE_MOSS),
@@ -81,7 +81,7 @@ public class ModSurfaceRules {
     }
 
 
-    public static SurfaceRules.RuleSource makeDisBiomeRules() {
+    public static SurfaceRules.RuleSource makeDepthsOfDisRules() {
 
         return SurfaceRules.sequence(
                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, STONE_BRICKS),
@@ -101,7 +101,7 @@ public class ModSurfaceRules {
     }
 
 
-    public static SurfaceRules.RuleSource makeBolgiaRules() {
+    public static SurfaceRules.RuleSource makeMalebolgeRules() {
 
         return SurfaceRules.sequence(
                 SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, STONE),
@@ -176,13 +176,13 @@ public class ModSurfaceRules {
 
 
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.LIMBO), makeLimboRules()),
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.LUSTING_CLIFFS), makeLustingCliffsRules()),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.WHIRLING_WASTELANDS), makeWhirlingWastelandsRules()),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.GLUTTONOUS_CAVERNS), makeGluttonousCavernsRules()),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.ARID_PLAINS), makeAridPlainsRules()),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.STYX_RIVER), makeStyxRiverRules()),
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.DIS_BIOME), makeDisBiomeRules()),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.DEPTHS_OF_DIS), makeDepthsOfDisRules()),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.WOOD_OF_SUICIDES), makeWoodOfSuicidesRules()),
-                SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.BOLGIA), makeBolgiaRules()),
+                SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.MALEBOLGE), makeMalebolgeRules()),
                 SurfaceRules.ifTrue(SurfaceRules.isBiome(ModBiomes.FROZEN_DEPTHS), makeFrozenDepthsRules())
 
 

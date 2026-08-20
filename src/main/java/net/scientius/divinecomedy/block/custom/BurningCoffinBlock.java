@@ -1,6 +1,8 @@
 package net.scientius.divinecomedy.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.scientius.divinecomedy.entity.ModEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -109,6 +111,7 @@ public class BurningCoffinBlock extends HorizontalDirectionalBlock {
                     // Position it at the center of the broken block position
                     customEntity.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
                     level.addFreshEntity(customEntity);
+                    level.playSound(null, customEntity.blockPosition(), SoundEvents.WIND_CHARGE_BURST.value(), SoundSource.HOSTILE, 1.0f, 1.0f);
                 }
             }
         }

@@ -11,7 +11,7 @@
           "min_y": 256
         },
         {
-          "biome": "divinecomedy:lusting_cliffs",
+          "biome": "divinecomedy:whirling_wastelands",
           "max_y": 256,
           "min_y": 224
         },
@@ -31,7 +31,7 @@
           "min_y": 128
         },
         {
-          "biome": "divinecomedy:dis_biome",
+          "biome": "divinecomedy:depths_of_dis",
           "max_y": 128,
           "min_y": 96
         },
@@ -41,7 +41,7 @@
           "min_y": 64
         },
         {
-          "biome": "divinecomedy:bolgia",
+          "biome": "divinecomedy:malebolge",
           "max_y": 64,
           "min_y": 32
         },

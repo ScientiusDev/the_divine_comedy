@@ -1194,7 +1194,7 @@
         "if_true": {
           "type": "minecraft:biome",
           "biome_is": [
-            "divinecomedy:lusting_cliffs"
+            "divinecomedy:whirling_wastelands"
           ]
         },
         "then_run": {
@@ -1458,7 +1458,7 @@
         "if_true": {
           "type": "minecraft:biome",
           "biome_is": [
-            "divinecomedy:dis_biome"
+            "divinecomedy:depths_of_dis"
           ]
         },
         "then_run": {
@@ -1585,7 +1585,7 @@
         "if_true": {
           "type": "minecraft:biome",
           "biome_is": [
-            "divinecomedy:bolgia"
+            "divinecomedy:malebolge"
           ]
         },
         "then_run": {

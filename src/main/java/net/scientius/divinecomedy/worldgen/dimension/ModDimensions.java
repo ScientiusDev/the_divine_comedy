@@ -73,13 +73,13 @@ public class ModDimensions {
 
         ModBiomeSources customBiomeSource = new ModBiomeSources(List.of(
                 new ModBiomeSources.Layer(256, 288, biomeRegistry.getOrThrow(ModBiomes.LIMBO)),
-                new ModBiomeSources.Layer(224, 256, biomeRegistry.getOrThrow(ModBiomes.LUSTING_CLIFFS)),
+                new ModBiomeSources.Layer(224, 256, biomeRegistry.getOrThrow(ModBiomes.WHIRLING_WASTELANDS)),
                 new ModBiomeSources.Layer(192, 224, biomeRegistry.getOrThrow(ModBiomes.GLUTTONOUS_CAVERNS)),
                 new ModBiomeSources.Layer(160, 192, biomeRegistry.getOrThrow(ModBiomes.ARID_PLAINS)),
                 new ModBiomeSources.Layer(128, 160, biomeRegistry.getOrThrow(ModBiomes.STYX_RIVER)),
-                new ModBiomeSources.Layer(96, 128, biomeRegistry.getOrThrow(ModBiomes.DIS_BIOME)),
+                new ModBiomeSources.Layer(96, 128, biomeRegistry.getOrThrow(ModBiomes.DEPTHS_OF_DIS)),
                 new ModBiomeSources.Layer(64, 96, biomeRegistry.getOrThrow(ModBiomes.WOOD_OF_SUICIDES)),
-                new ModBiomeSources.Layer(32, 64, biomeRegistry.getOrThrow(ModBiomes.BOLGIA)),
+                new ModBiomeSources.Layer(32, 64, biomeRegistry.getOrThrow(ModBiomes.MALEBOLGE)),
                 new ModBiomeSources.Layer(0, 32, biomeRegistry.getOrThrow(ModBiomes.FROZEN_DEPTHS))
 
         ));

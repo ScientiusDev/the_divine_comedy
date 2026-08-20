@@ -1,6 +1,16 @@
 package net.scientius.divinecomedy.entity.custom;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.animal.wolf.WolfSoundVariant;
+import net.minecraft.world.entity.animal.wolf.WolfSoundVariants;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.neoforged.neoforge.common.damagesource.DamageContainer;
@@ -28,6 +38,7 @@ import net.minecraft.world.level.Level;
 import net.scientius.divinecomedy.entity.ai.CerebusChargeGoal;
 import net.scientius.divinecomedy.entity.ai.CerebusSlamGoal;
 import net.scientius.divinecomedy.entity.ai.CerebusSleepGoal;
+import org.jspecify.annotations.Nullable;
 
 public class CerebusEntity extends PathfinderMob {
 
@@ -213,5 +224,49 @@ public class CerebusEntity extends PathfinderMob {
         super.readAdditionalSaveData(input);
         this.setSleeping(input.getBooleanOr("IsSleeping", true));
         this.setAttacking(input.getBooleanOr("IsAttacking", false));
+    }
+
+    @Override
+    protected void playStepSound(BlockPos pos, BlockState blockState) {
+        this.playSound(blockState.getSoundType().getStepSound(), 0.15f, 1.0f);
+    }
+
+    @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        return getWolfSoundVariant(this.level(), WolfSoundVariants.ANGRY).adultSounds().ambientSound().value();
+    }
+
+    @Override
+    public void playAmbientSound() {
+        this.playSound(getAmbientSound(), 2.0f, 0.5f);
+    }
+
+    @Override
+    protected @Nullable SoundEvent getHurtSound(DamageSource source) {
+        return getWolfSoundVariant(this.level(), WolfSoundVariants.ANGRY).adultSounds().hurtSound().value();
+    }
+
+    @Override
+    protected void playHurtSound(DamageSource source) {
+        this.playSound(getHurtSound(source), 2.0f, 0.5f);
+    }
+
+    @Override
+    protected @Nullable SoundEvent getDeathSound() {
+        return getWolfSoundVariant(this.level(), WolfSoundVariants.ANGRY).adultSounds().hurtSound().value();
+    }
+
+
+
+    public static WolfSoundVariant getWolfSoundVariant(Level level, ResourceKey<WolfSoundVariant> key) {
+        return level.registryAccess()
+                .lookupOrThrow(Registries.WOLF_SOUND_VARIANT)
+                .getOrThrow(key)
+                .value();
+    }
+
+    @Override
+    public boolean removeWhenFarAway(double distanceToClosestPlayer) {
+        return false;
     }
 }

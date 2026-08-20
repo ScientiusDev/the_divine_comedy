@@ -1,12 +1,12 @@
 {
-  "name": "divinecomedy:stairway_from_limbo_pool",
+  "name": "divinecomedy:geryons_plummet",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
         "element_type": "minecraft:single_pool_element",
-        "location": "divinecomedy:stairway_from_limbo",
+        "location": "divinecomedy:geryons_plummet_bottom",
         "processors": "minecraft:empty",
         "projection": "rigid"
       }

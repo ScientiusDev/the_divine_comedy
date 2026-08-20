@@ -52,7 +52,7 @@ public class ModInfernoBiomes {
 
 
 
-    public static Biome lustingCliffs(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+    public static Biome whirlingWastelands(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -200,7 +200,7 @@ public class ModInfernoBiomes {
 
 
 
-    public static Biome disBiome(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+    public static Biome depthsOfDis(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
@@ -270,7 +270,7 @@ public class ModInfernoBiomes {
     }
 
 
-    public static Biome bolgia(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+    public static Biome malebolge(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();

@@ -1,11 +1,14 @@
 package net.scientius.divinecomedy.entity.custom;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.*;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
@@ -15,7 +18,9 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.scientius.divinecomedy.util.InfernoTeleporter;
+import org.jspecify.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,10 +50,10 @@ public class VirgilagerEntity extends PathfinderMob {
     protected void registerGoals() {
         // This determines the AI (!)
         goalSelector.addGoal(0, new FloatGoal(this));
-        goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 5.0f));
-        goalSelector.addGoal(2, new MeleeAttackGoal(this, 1,true));
-        goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 1));
-        goalSelector.addGoal(3, new RandomLookAroundGoal(this));
+        goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 5.0f));
+        goalSelector.addGoal(1, new MeleeAttackGoal(this, 1,true));
+        goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1));
+        goalSelector.addGoal(4, new RandomLookAroundGoal(this));
 
 
         // This is what it wants to target I think
@@ -126,6 +131,27 @@ public class VirgilagerEntity extends PathfinderMob {
         lastGreeted.remove(serverPlayer.getUUID());
         InfernoTeleporter.sendToInferno(serverPlayer);
         return InteractionResult.SUCCESS_SERVER;
+    }
+
+
+    @Override
+    protected void playStepSound(BlockPos pos, BlockState blockState) {
+        this.playSound(blockState.getSoundType().getStepSound(), 0.15f, 1.0f);
+    }
+
+    @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        return SoundEvents.VILLAGER_AMBIENT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.EVOKER_HURT;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getDeathSound() {
+        return SoundEvents.EVOKER_DEATH;
     }
 
 }

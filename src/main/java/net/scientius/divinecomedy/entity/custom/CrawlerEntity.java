@@ -1,5 +1,10 @@
 package net.scientius.divinecomedy.entity.custom;
 
+import net.minecraft.client.resources.sounds.Sound;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.PathfinderMob;
@@ -12,6 +17,8 @@ import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import org.jspecify.annotations.Nullable;
 
 public class CrawlerEntity extends PathfinderMob {
 
@@ -60,5 +67,25 @@ public class CrawlerEntity extends PathfinderMob {
         } else {
             this.idleAnimationTimeout--;
         }
+    }
+
+    @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        return SoundEvents.DROWNED_AMBIENT_WATER;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getHurtSound(DamageSource source) {
+        return SoundEvents.DROWNED_HURT_WATER;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getDeathSound() {
+        return SoundEvents.DROWNED_DEATH;
+    }
+
+    @Override
+    protected void playStepSound(BlockPos pos, BlockState blockState) {
+        this.playSound(SoundEvents.SLIME_SQUISH, 0.3f, 0.5f);
     }
 }
