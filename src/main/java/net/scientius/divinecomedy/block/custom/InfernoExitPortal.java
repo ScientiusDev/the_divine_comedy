@@ -28,10 +28,6 @@ public class InfernoExitPortal extends Block {
         return Shapes.block();
     }
 
-//    @Override
-//    protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-//        return Shapes.empty();
-//    }
 
     @Override
     protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {

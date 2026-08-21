@@ -13,13 +13,25 @@
   },
   "features": [],
   "has_precipitation": false,
-  "spawn_costs": {},
+  "spawn_costs": {
+    "minecraft:ghast": {
+      "charge": 1.0,
+      "energy_budget": 0.5
+    }
+  },
   "spawners": {
     "ambient": [],
     "axolotls": [],
     "creature": [],
     "misc": [],
-    "monster": [],
+    "monster": [
+      {
+        "type": "minecraft:ghast",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 50
+      }
+    ],
     "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": []

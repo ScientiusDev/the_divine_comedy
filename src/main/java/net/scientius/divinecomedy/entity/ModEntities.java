@@ -32,7 +32,7 @@ public class ModEntities {
     public static final Supplier<EntityType<RockRollerEntity>> ROCK_ROLLER = ENTITY_TYPES.register("rock_roller",
             () -> EntityType.Builder.of(RockRollerEntity::new, MobCategory.MONSTER).sized(0.6f, 1.95f).build(ROCK_ROLLER_KEY));
     public static final Supplier<EntityType<VirgilagerEntity>> VIRGILAGER = ENTITY_TYPES.register("virgilager",
-            () -> EntityType.Builder.of(VirgilagerEntity::new, MobCategory.CREATURE).sized(0.6f, 1.95f).build(VIRGILAGER_KEY));
+            () -> EntityType.Builder.of(VirgilagerEntity::new, MobCategory.CREATURE).noLootTable().sized(0.6f, 1.95f).build(VIRGILAGER_KEY));
     public static final Supplier<EntityType<CerebusEntity>> CEREBUS = ENTITY_TYPES.register("cerebus",
             () -> EntityType.Builder.of(CerebusEntity::new, MobCategory.MONSTER).sized(4f, 5.5f).build(CEREBUS_KEY));
     public static final Supplier<EntityType<CrawlerEntity>> CRAWLER = ENTITY_TYPES.register("crawler",
@@ -40,7 +40,7 @@ public class ModEntities {
     public static final Supplier<EntityType<HereticEntity>> HERETIC = ENTITY_TYPES.register("heretic",
             () -> EntityType.Builder.of(HereticEntity::new, MobCategory.MONSTER).sized(0.6f, 1.95f).build(HERETIC_KEY));
     public static final Supplier<EntityType<VirtuousPaganEntity>> VIRTUOUS_PAGAN = ENTITY_TYPES.register("virtuous_pagan",
-            () -> EntityType.Builder.of(VirtuousPaganEntity::new, MobCategory.MONSTER).sized(0.6f, 1.95f).build(VIRTUOUS_PAGAN_KEY));
+            () -> EntityType.Builder.of(VirtuousPaganEntity::new, MobCategory.MONSTER).noLootTable().sized(0.6f, 1.95f).build(VIRTUOUS_PAGAN_KEY));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

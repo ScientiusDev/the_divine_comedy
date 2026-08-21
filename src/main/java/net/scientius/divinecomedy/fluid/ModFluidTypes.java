@@ -1,5 +1,7 @@
 package net.scientius.divinecomedy.fluid;
 
+import net.minecraft.sounds.SoundEvents;
+import net.neoforged.neoforge.common.SoundActions;
 import net.scientius.divinecomedy.DivineComedy;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -30,6 +32,8 @@ public class ModFluidTypes {
                     .canSwim(true)
                     .canDrown(true)
                     .isWaterLike(false)
+                    .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)
+                    .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
 
             ));
 
@@ -41,6 +45,8 @@ public class ModFluidTypes {
                     .canSwim(true)
                     .canDrown(true)
                     .isWaterLike(true)
+                    .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY)
+                    .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL)
 
             ));
 
@@ -60,10 +66,9 @@ public class ModFluidTypes {
             fogData.environmentalStart = 1.0f;
 
             fogData.renderDistanceEnd = 3.0f;
-            fogData.environmentalEnd = 3.0f;        }
+            fogData.environmentalEnd = 3.0f;
+        }
     };
-
-
 
 
     public static IClientFluidTypeExtensions BOILING_BLOOD_EXTENSION = new IClientFluidTypeExtensions() {
@@ -74,10 +79,6 @@ public class ModFluidTypes {
             IClientFluidTypeExtensions.super.modifyFogColor(camera, partialTick, level, renderDistance, darkenWorldAmount, fluidFogColor);
         }
     };
-
-
-
-
 
 
 }

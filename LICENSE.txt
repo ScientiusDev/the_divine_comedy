@@ -1,0 +1,8 @@
+Copyright (c) 2026 scientius
+All Rights Reserved.
+
+This mod and its source code may not be reproduced, modified, distributed,
+or hosted on other websites without explicit permission.
+
+Modpacks: You are free to use this mod in any of your modpacks provided
+that the modpack is hosted on Curseforge and credit is given.

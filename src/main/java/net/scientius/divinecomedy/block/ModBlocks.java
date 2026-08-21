@@ -1,10 +1,7 @@
 package net.scientius.divinecomedy.block;
 
 import net.scientius.divinecomedy.DivineComedy;
-import net.scientius.divinecomedy.block.custom.BossBlock;
-import net.scientius.divinecomedy.block.custom.BurningCoffinBlock;
-import net.scientius.divinecomedy.block.custom.InfernoExitPortal;
-import net.scientius.divinecomedy.block.custom.ModFlammableRotatedPillarBlock;
+import net.scientius.divinecomedy.block.custom.*;
 import net.scientius.divinecomedy.fluid.ModFluids;
 import net.scientius.divinecomedy.item.ModItems;
 import net.scientius.divinecomedy.worldgen.tree.ModTreeGrowers;
@@ -28,11 +25,6 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(DivineComedy.MODID);
 
-
-    // Blocks start here
-    public static final DeferredBlock<Block> INFERNITE_ORE = registerBlock("infernite_ore",
-            properties -> new Block(properties.strength(4f)
-                    .requiresCorrectToolForDrops().sound(SoundType.NETHER_ORE)));
 
     public static final DeferredBlock<Block> SOUL_OAK_LOG = registerBlock("soul_oak_log",
             properties -> new ModFlammableRotatedPillarBlock(properties.sound(SoundType.WOOD).strength(2f)
@@ -122,7 +114,7 @@ public class ModBlocks {
             ));
 
     public static final DeferredBlock<LiquidBlock> BOILING_BLOOD_BLOCK = BLOCKS.registerBlock("boiling_blood_block",
-            properties -> new LiquidBlock(ModFluids.BOILING_BLOOD_SOURCE.get(), properties
+            properties -> new BoilingBloodBlock(ModFluids.BOILING_BLOOD_SOURCE.get(), properties
                     .mapColor(MapColor.FIRE). replaceable()
                     .noCollision()
                     .strength(100.0f)

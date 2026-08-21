@@ -30,13 +30,12 @@ public final class InfernoTeleporter {
 
     private InfernoTeleporter() {}
 
-    /** Call this from anywhere with a ServerPlayer - Virgil, death, a block, etc. */
     public static void sendToInferno(ServerPlayer player) {
         MinecraftServer server = player.level().getServer();
         if (server == null) return;
 
         ServerLevel destination = server.getLevel(INFERNO_KEY);
-        if (destination == null) return; // dimension not registered - bail safely
+        if (destination == null) return;
 
 
         int y = findLandingY(destination, Mth.floor(0), Mth.floor(0));

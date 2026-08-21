@@ -5,11 +5,15 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.animal.wolf.WolfSoundVariant;
 import net.minecraft.world.entity.animal.wolf.WolfSoundVariants;
+import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -51,9 +55,8 @@ public class CerebusEntity extends PathfinderMob {
     private final static EntityDataAccessor<Boolean> SLAMMING =
             SynchedEntityData.defineId(CerebusEntity.class, EntityDataSerializers.BOOLEAN);
 
-    // FIX: Event IDs for our one-shot animations
-    private static final byte WAKE_EVENT_ID = 60;
-    private static final byte ANGER_EVENT_ID = 61;
+
+
 
     private final ServerBossEvent bossEvent = new ServerBossEvent(this.uuid, Component.literal("Cerebus"), BossEvent.BossBarColor.WHITE, BossEvent.BossBarOverlay.NOTCHED_6);
 
@@ -107,18 +110,6 @@ public class CerebusEntity extends PathfinderMob {
         }
     }
 
-
-    // FIX: Catches the broadcast events on the client to play the animations
-    @Override
-    public void handleEntityEvent(byte id) {
-        if (id == 60) {
-            this.wakeAnimationState.start(this.tickCount); // Hit Play!
-        } else if (id == 61) {
-            this.angerAnimationState.start(this.tickCount); // Starts the anger state!
-        } else {
-            super.handleEntityEvent(id);
-        }
-    }
 
     public void setAttacking(boolean attacking) { this.entityData.set(ATTACKING, attacking); }
     public void setSleeping(boolean sleeping) { this.entityData.set(SLEEPING, sleeping); }
@@ -268,5 +259,28 @@ public class CerebusEntity extends PathfinderMob {
     @Override
     public boolean removeWhenFarAway(double distanceToClosestPlayer) {
         return false;
+    }
+
+
+    @Override
+    public @Nullable ItemEntity spawnAtLocation(ServerLevel level, ItemStack itemStack, float offset) {
+
+        ItemEntity droppedItem = super.spawnAtLocation(level, itemStack, offset);
+
+
+        if (droppedItem != null) {
+
+            double explodePower = 1.0D;
+
+            double xVelocity = (this.random.nextDouble() - 0.5D) * explodePower;
+            double yVelocity = (this.random.nextDouble() * 0.5D) + 0.3D;
+            double zVelocity = (this.random.nextDouble() - 0.5D) * explodePower;
+
+            droppedItem.setDeltaMovement(xVelocity, yVelocity, zVelocity);
+
+
+        }
+
+        return droppedItem;
     }
 }

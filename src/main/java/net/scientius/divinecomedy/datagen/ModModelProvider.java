@@ -27,7 +27,6 @@ public class ModModelProvider extends ModelProvider {
 
 
         /* ITEMS */
-        itemModels.generateFlatItem(ModItems.INFERNITE.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.STYX_FLUID_BUCKET.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.BOILING_BLOOD_BUCKET.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.ROCK_ROLLER_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
@@ -45,7 +44,6 @@ public class ModModelProvider extends ModelProvider {
 
 
         /* BLOCKS */
-        blockModels.createTrivialCube(ModBlocks.INFERNITE_ORE.get());
 
         blockModels.createTrivialCube(ModBlocks.INFERNO_EXIT_PORTAL.get());
         blockModels.createTrivialCube(ModBlocks.CEREBUS_BOSS_BLOCK.get());

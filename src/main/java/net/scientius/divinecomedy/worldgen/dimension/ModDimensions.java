@@ -43,7 +43,7 @@ public class ModDimensions {
         context.register(INFERNO_TYPE_KEY, new DimensionType(
                 true,
                 false,
-                false,
+                true,
                 false,
                 1.0,
                 0,
@@ -52,16 +52,16 @@ public class ModDimensions {
                 BlockTags.INFINIBURN_NETHER,
                 0.7f,
                 new DimensionType.MonsterSettings(ConstantInt.of(0), 7),
-                DimensionType.Skybox.OVERWORLD,
+                DimensionType.Skybox.NONE,
                 CardinalLighting.Type.DEFAULT,
                 EnvironmentAttributeMap.builder().
                         set(EnvironmentAttributes.AMBIENT_LIGHT_COLOR, -13621215)
                         .set(EnvironmentAttributes.BED_RULE, BedRule.EXPLODES)
                         .set(EnvironmentAttributes.RESPAWN_ANCHOR_WORKS, true)
                         .build(),
-                timelines.getOrThrow(TimelineTags.IN_OVERWORLD),
-                Optional.of(clocks.getOrThrow(WorldClocks.OVERWORLD))
-        ));
+                timelines.getOrThrow(TimelineTags.IN_NETHER),
+                Optional.empty())
+        );
     }
 
     public static void bootstrapStem(BootstrapContext<LevelStem> context){

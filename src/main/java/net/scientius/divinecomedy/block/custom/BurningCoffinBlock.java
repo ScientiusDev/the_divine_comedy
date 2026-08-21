@@ -48,13 +48,13 @@ public class BurningCoffinBlock extends HorizontalDirectionalBlock {
         return CODEC;
     }
 
-    // 1. THE HITBOX: Just return a standard 16x16x16 full block!
+
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
         return Shapes.block();
     }
 
-    // 2. CHECK FOR SPACE
+
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
         Direction facing = context.getHorizontalDirection();
@@ -62,7 +62,7 @@ public class BurningCoffinBlock extends HorizontalDirectionalBlock {
         BlockPos headPos = pos.relative(facing);
         Level level = context.getLevel();
 
-        // Make sure the block in front is empty before allowing placement
+
         if (level.getBlockState(headPos).canBeReplaced(context) && level.getWorldBorder().isWithinBounds(headPos)) {
             return this.defaultBlockState().setValue(FACING, facing).setValue(PART, BedPart.FOOT);
         }
@@ -81,11 +81,13 @@ public class BurningCoffinBlock extends HorizontalDirectionalBlock {
 
             BlockPos footFirePos = pos.above();
             if (level.getBlockState(footFirePos).isAir()) {
-                level.setBlock(footFirePos, BaseFireBlock.getState(level, footFirePos), 3);}
+                level.setBlock(footFirePos, BaseFireBlock.getState(level, footFirePos), 3);
+            }
 
             BlockPos headFirePos = headPos.above();
             if (level.getBlockState(headFirePos).isAir()) {
-                level.setBlock(headFirePos, BaseFireBlock.getState(level, headFirePos), 3);}
+                level.setBlock(headFirePos, BaseFireBlock.getState(level, headFirePos), 3);
+            }
         }
     }
 
@@ -99,45 +101,42 @@ public class BurningCoffinBlock extends HorizontalDirectionalBlock {
         ) > 0;
 
 
-            // 30% chance to spawn your custom entity (0.3f = 30%)
-            if (level.getRandom().nextFloat() < 0.3f && !hasSilkTouch)  {
-                Entity customEntity = ModEntities.HERETIC.get().spawn(
-                        level,
-                        pos,
-                        EntitySpawnReason.EVENT
-                );
+        if (level.getRandom().nextFloat() < 0.3f && !hasSilkTouch) {
+            Entity customEntity = ModEntities.HERETIC.get().spawn(
+                    level,
+                    pos,
+                    EntitySpawnReason.EVENT
+            );
 
-                if (customEntity != null) {
-                    // Position it at the center of the broken block position
-                    customEntity.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
-                    level.addFreshEntity(customEntity);
-                    level.playSound(null, customEntity.blockPosition(), SoundEvents.WIND_CHARGE_BURST.value(), SoundSource.HOSTILE, 1.0f, 1.0f);
-                }
+            if (customEntity != null) {
+
+                customEntity.setPos(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+                level.addFreshEntity(customEntity);
+                level.playSound(null, customEntity.blockPosition(), SoundEvents.WIND_CHARGE_BURST.value(), SoundSource.HOSTILE, 1.0f, 1.0f);
             }
         }
+    }
 
     @Override
     protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess ticks, BlockPos pos, Direction directionToNeighbour, BlockPos neighbourPos, BlockState neighbourState, RandomSource random) {
         BedPart part = state.getValue(PART);
         Direction facing = state.getValue(FACING);
 
-        // Find out which direction the OTHER half of the coffin is supposed to be
+
         Direction targetDirection = (part == BedPart.FOOT) ? facing : facing.getOpposite();
 
-        // If the block that just updated was in the direction of our other half...
+
         if (directionToNeighbour == targetDirection) {
-            // ...and it is NO LONGER our coffin block (or it's the wrong half)...
+
             if (!neighbourState.is(this) || neighbourState.getValue(PART) == part) {
-                // ...destroy this half too!
+
                 return Blocks.AIR.defaultBlockState();
             }
         }
 
-        // Otherwise, just do the normal block update stuff
+
         return super.updateShape(state, level, ticks, pos, directionToNeighbour, neighbourPos, neighbourState, random);
     }
-
-
 
 
     @Override

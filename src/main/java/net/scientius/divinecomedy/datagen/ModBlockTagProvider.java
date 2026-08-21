@@ -18,11 +18,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.INFERNITE_ORE.get());
-
-        tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModBlocks.INFERNITE_ORE.get());
 
         tag(BlockTags.LOGS_THAT_BURN)
                 .add(ModBlocks.SOUL_OAK_LOG.get())

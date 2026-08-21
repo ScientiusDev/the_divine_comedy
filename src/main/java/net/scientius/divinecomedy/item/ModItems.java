@@ -16,7 +16,6 @@ public class ModItems {
 
 
     // Items start here
-    public static final DeferredItem<Item> INFERNITE = ITEMS.registerSimpleItem("infernite");
 
     public static final DeferredItem<Item> STYX_FLUID_BUCKET = ITEMS.registerItem("styx_fluid_bucket",
             properties -> new BucketItem(ModFluids.STYX_FLUID_SOURCE.get(), properties.stacksTo(1).craftRemainder(Items.BUCKET))

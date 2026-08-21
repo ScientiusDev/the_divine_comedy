@@ -2,6 +2,7 @@ package net.scientius.divinecomedy.event;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
@@ -9,8 +10,6 @@ import net.scientius.divinecomedy.Config;
 import net.scientius.divinecomedy.DivineComedy;
 import net.scientius.divinecomedy.entity.ModEntities;
 import net.scientius.divinecomedy.entity.custom.*;
-import net.scientius.divinecomedy.networking.ServerboundPackets;
-import net.scientius.divinecomedy.networking.packet.TestPacketC2S;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -30,8 +29,8 @@ public class ModEvents {
     public static void registerPayloads(RegisterPayloadHandlersEvent event) {
         PayloadRegistrar registrar = event.registrar("1"); //.executesOn(HandlerThread.MAIN);
 
-        registrar.playToServer(TestPacketC2S.TYPE, TestPacketC2S.STREAM_CODEC, ServerboundPackets::handleTestPacket);
     }
+
 
 
     @SubscribeEvent
@@ -61,7 +60,22 @@ public class ModEvents {
         event.register(ModEntities.VIRTUOUS_PAGAN.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PathfinderMob::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+
+        // I can not for the life of me figure out how to spawn these, even AI be hopeless...
+        event.register(EntityType.SKELETON,
+                (type, level, spawnType, pos, random) ->
+                        level.getLevel().dimension() == ModDimensions.INFERNO_LEVEL_KEY
+                                && PathfinderMob.checkMobSpawnRules(type, level, spawnType, pos, random),
+                RegisterSpawnPlacementsEvent.Operation.OR);
+
+        event.register(EntityType.WITHER_SKELETON,
+                (type, level, spawnType, pos, random) ->
+                        level.getLevel().dimension() == ModDimensions.INFERNO_LEVEL_KEY
+                                && PathfinderMob.checkMobSpawnRules(type, level, spawnType, pos, random),
+                RegisterSpawnPlacementsEvent.Operation.OR);
     }
+
+
 
     @SubscribeEvent
     public static void onPlayerRespawn(PlayerEvent.PlayerRespawnEvent event) {

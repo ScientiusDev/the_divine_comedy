@@ -28,8 +28,6 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     protected void generate() {
         //dropSelf(ModBlocks.EXAMPLE.get())
 
-        add(ModBlocks.INFERNITE_ORE.get(),
-                createMultipleOreDrops(ModBlocks.INFERNITE_ORE.get(), ModItems.INFERNITE.get(), 1, 5));
 
         dropSelf(ModBlocks.SOUL_OAK_LOG.get());
         dropSelf(ModBlocks.SOUL_OAK_WOOD.get());

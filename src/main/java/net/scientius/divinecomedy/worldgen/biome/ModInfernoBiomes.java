@@ -1,5 +1,9 @@
 package net.scientius.divinecomedy.worldgen.biome;
 
+import net.minecraft.data.worldgen.placement.TreePlacements;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.scientius.divinecomedy.entity.ModEntities;
 import net.scientius.divinecomedy.worldgen.ModPlacedFeatures;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.world.attribute.EnvironmentAttributes;
@@ -17,18 +21,19 @@ public class ModInfernoBiomes {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        // Kaupenjoe example mobs, this is where mobs go
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.RHINO.get(), 2, 3, 5));
-//
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(ModEntities.VIRTUOUS_PAGAN.get(), 1, 3))
+                .addMobCharge(ModEntities.VIRTUOUS_PAGAN.get(), 0.5d, 0.4d);
 
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.SKELETON, 1, 2))
+                .addMobCharge(EntityType.SKELETON, 0.5d, 0.3d);
 
 
         // Placed features
 
-        BiomeGenerationSettings.Builder biomeBuilder =
-                new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-        //we need to follow the same order as vanilla biomes for the BiomeDefaultFeatures
+        BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+                placedFeatureGetter.getOrThrow(TreePlacements.PALE_OAK_CHECKED));
+
 
 
         // The settings
@@ -51,22 +56,14 @@ public class ModInfernoBiomes {
     }
 
 
-
     public static Biome whirlingWastelands(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        // Kaupenjoe example mobs, this is where mobs go
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.RHINO.get(), 2, 3, 5));
-//
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
 
-        // Placed features
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-        //we need to follow the same order as vanilla biomes for the BiomeDefaultFeatures
-
 
 
         // The settings
@@ -87,25 +84,24 @@ public class ModInfernoBiomes {
     }
 
 
-
     public static Biome gluttonousCaverns(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        // Kaupenjoe example mobs, this is where mobs go
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.RHINO.get(), 2, 3, 5));
-//
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
 
-        // Placed features
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.WITHER_SKELETON, 1, 1))
+                .addMobCharge(EntityType.WITHER_SKELETON, 0.9d, 0.5d);
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(ModEntities.CRAWLER.get(), 1, 3))
+                .addMobCharge(ModEntities.CRAWLER.get(), 2.0d, 1.0d);
+
+
+
+//
+//
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-        //we need to follow the same order as vanilla biomes for the BiomeDefaultFeatures
 
-
-
-        // The settings
 
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(true)
@@ -129,21 +125,12 @@ public class ModInfernoBiomes {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        // Kaupenjoe example mobs, this is where mobs go
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.RHINO.get(), 2, 3, 5));
+
 //
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
-
-
-        // Placed features
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-        //we need to follow the same order as vanilla biomes for the BiomeDefaultFeatures
 
-
-
-        // The settings
 
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(false)
@@ -162,25 +149,18 @@ public class ModInfernoBiomes {
     }
 
 
-
     public static Biome styxRiver(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        // Kaupenjoe example mobs, this is where mobs go
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.RHINO.get(), 2, 3, 5));
-//
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
 
-        // Placed features
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.GHAST, 1, 1))
+                .addMobCharge(EntityType.GHAST, 1.0d, 0.5d);
+
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-        //we need to follow the same order as vanilla biomes for the BiomeDefaultFeatures
 
-
-
-        // The settings
 
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(false)
@@ -199,26 +179,17 @@ public class ModInfernoBiomes {
     }
 
 
-
     public static Biome depthsOfDis(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        // Kaupenjoe example mobs, this is where mobs go
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.RHINO.get(), 2, 3, 5));
-//
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
 
 
-        // Placed features
+
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-        //we need to follow the same order as vanilla biomes for the BiomeDefaultFeatures
 
-
-
-        // The settings
 
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(false)
@@ -239,20 +210,16 @@ public class ModInfernoBiomes {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        // Kaupenjoe example mobs, this is where mobs go
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.RHINO.get(), 2, 3, 5));
-//
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
 
         // Placed features
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-        //we need to follow the same order as vanilla biomes for the BiomeDefaultFeatures
+
 
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.SOUL_OAK_TREE_PLACED_KEY);
 
-        // The settings
+
 
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(false)
@@ -274,20 +241,10 @@ public class ModInfernoBiomes {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        // Kaupenjoe example mobs, this is where mobs go
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.RHINO.get(), 2, 3, 5));
-//
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
 
-        // Placed features
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-        //we need to follow the same order as vanilla biomes for the BiomeDefaultFeatures
-
-
-
-        // The settings
 
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(false)
@@ -309,19 +266,11 @@ public class ModInfernoBiomes {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        // Kaupenjoe example mobs, this is where mobs go
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntities.RHINO.get(), 2, 3, 5));
-//
-//        spawnBuilder.addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(EntityType.WOLF, 5, 4, 4));
 
-        // Placed features
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-        //we need to follow the same order as vanilla biomes for the BiomeDefaultFeatures
 
-
-        // The settings
 
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(false)

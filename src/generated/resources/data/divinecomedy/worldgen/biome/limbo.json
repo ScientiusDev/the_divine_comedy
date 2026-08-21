@@ -11,15 +11,50 @@
     "grass_color": "#717871",
     "water_color": "#3f76e4"
   },
-  "features": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:pale_oak_checked"
+    ]
+  ],
   "has_precipitation": false,
-  "spawn_costs": {},
+  "spawn_costs": {
+    "divinecomedy:virtuous_pagan": {
+      "charge": 0.5,
+      "energy_budget": 0.4
+    },
+    "minecraft:skeleton": {
+      "charge": 0.5,
+      "energy_budget": 0.3
+    }
+  },
   "spawners": {
     "ambient": [],
     "axolotls": [],
     "creature": [],
     "misc": [],
-    "monster": [],
+    "monster": [
+      {
+        "type": "divinecomedy:virtuous_pagan",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 50
+      },
+      {
+        "type": "minecraft:skeleton",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 50
+      }
+    ],
     "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": []

@@ -19,11 +19,11 @@ public class CerebusSlamGoal extends Goal {
     private static final double KNOCK_HORIZONTAL = 1.1;
     private static final double KNOCK_UPWARD = 0.6;
 
-    // TODO: Change this to (Seconds in Blockbench * 20). If the windup is 1.5 seconds, make this 30!
+
     private static final int WINDUP_TICKS = 30;
     private static final int RECOVER_TICKS = 20;
 
-    private static final int SLAM_COOLDOWN = 160; // Forces an 8-second wait between Slams so he uses Melee
+    private static final int SLAM_COOLDOWN = 160;
 
     private final CerebusEntity cerebus;
     private int ticksRunning;
@@ -40,7 +40,7 @@ public class CerebusSlamGoal extends Goal {
         LivingEntity target = cerebus.getTarget();
         if (target == null || !target.isAlive()) return false;
 
-        // Block the slam if it's on its 8-second cooldown
+
         if (cerebus.tickCount - lastSlamTick < SLAM_COOLDOWN) return false;
         return cerebus.distanceToSqr(target) <= TRIGGER_RANGE * TRIGGER_RANGE;
     }
@@ -105,7 +105,7 @@ public class CerebusSlamGoal extends Goal {
     @Override
     public void stop() {
         ticksRunning = 0;
-        lastSlamTick = cerebus.tickCount; // Start the 8-second cooldown timer
+        lastSlamTick = cerebus.tickCount;
         cerebus.setSlamming(false);
     }
 }

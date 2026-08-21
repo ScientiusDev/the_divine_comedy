@@ -42,23 +42,23 @@ public class CerebusAttackGoal extends MeleeAttackGoal {
         return  distSqr <= MAX_RANGE * MAX_RANGE;
     }
 
-    // FIX: Complete rewrite of canContinueToUse to allow seamless hand-offs to Charge and Slam
+
     @Override
     public boolean canContinueToUse() {
         LivingEntity target = this.mob.getTarget();
         if (target == null || !target.isAlive()) return false;
 
-        // FIX: If he is currently swinging, DO NOT cancel the attack! Finish the hit first.
+
         if (this.attackInProgress) return true;
 
         double distSqr = this.mob.distanceToSqr(target);
 
-        // If player is too close, hand over control to the Slam attack
+
         if (distSqr <= MIN_RANGE * MIN_RANGE) {
             return false;
         }
 
-        // If player is too far, hand over control to the Charge attack
+
         if (distSqr > MAX_RANGE * MAX_RANGE) {
             return false;
         }

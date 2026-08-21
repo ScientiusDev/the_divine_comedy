@@ -42,7 +42,7 @@ public class ModNoiseSettings {
                 DensityFunctions.zero(), DensityFunctions.zero(), DensityFunctions.zero(), DensityFunctions.zero(),
                 DensityFunctions.zero(), DensityFunctions.zero(), DensityFunctions.zero(), DensityFunctions.zero(),
                 DensityFunctions.zero(), DensityFunctions.zero(),
-                DensityFunctions.zero(), // preliminarySurfaceLevel — back to zero, not finalDensity
+                DensityFunctions.zero(),
                 finalDensity,
                 DensityFunctions.zero(), DensityFunctions.zero(), DensityFunctions.zero()
         );
@@ -71,7 +71,7 @@ public class ModNoiseSettings {
     private static DensityFunction buildSingleLayer(HolderGetter<NormalNoise.NoiseParameters> noises, int baseY) {
         DensityFunction y = DensityFunctions.yClampedGradient(0, 288, 0.0, 288.0);
 
-        // --- FLOOR ---
+
         DensityFunction floorNoise = DensityFunctions.interpolated(
                 DensityFunctions.noise(noises.getOrThrow(ModNoises.floorKey(baseY)), 1.5, 0.0));
 
@@ -81,7 +81,6 @@ public class ModNoiseSettings {
         );
         DensityFunction floorDensity = sub(floorSurfaceY, y);
 
-        // --- CEILING ---
         DensityFunction ceilingNoise = DensityFunctions.interpolated(
                 DensityFunctions.noise(noises.getOrThrow(ModNoises.ceilingKey(baseY)), 2.0, 0.0));
 
@@ -91,7 +90,7 @@ public class ModNoiseSettings {
         );
         DensityFunction ceilingDensity = sub(y, ceilingSurfaceY);
 
-        // --- COMBINE & ISOLATE LAYER ---
+
         DensityFunction roomShape = DensityFunctions.max(floorDensity, ceilingDensity);
 
         return DensityFunctions.rangeChoice(

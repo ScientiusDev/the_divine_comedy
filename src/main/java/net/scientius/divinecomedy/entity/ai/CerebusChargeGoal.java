@@ -11,7 +11,7 @@ public class CerebusChargeGoal extends Goal {
     private static final double TRIGGER_RANGE = 10.0;
     private static final int WINDUP_TICKS = 15;
     private static final int MAX_CHARGE_TICKS = 60;
-    private static final double CHARGE_SPEED = 3.0; // Standard pathfinding speed modifier (2.0x speed)
+    private static final double CHARGE_SPEED = 3.0;
 
 
     private enum Phase { WINDUP, CHARGING}
@@ -69,7 +69,7 @@ public class CerebusChargeGoal extends Goal {
                 }
             }
             case CHARGING -> {
-                // Uses standard pathfinding navigation so he can clear blocks, climb steps, and jump!
+
                 cerebus.getNavigation().moveTo(target, CHARGE_SPEED);
                 cerebus.getLookControl().setLookAt(target, 30.0F, 30.0F);
 

@@ -5,7 +5,8 @@
     "divinecomedy:andesite_clump_placed_placed",
     "divinecomedy:blackstone_clump_placed_placed",
     "divinecomedy:quartz_clump_placed_placed",
-    "divinecomedy:diorite_clump_placed_placed"
+    "divinecomedy:diorite_clump_placed_placed",
+    "divinecomedy:dirt_clump_placed_placed"
   ],
   "step": "underground_ores"
 }

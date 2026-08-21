@@ -26,6 +26,7 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> SPAWN_ROCK_ROLLER = registerKey("spawn_rock_roller");
     public static final ResourceKey<BiomeModifier> SPAWN_VIRGILAGER = registerKey("spawn_virgilager");
     public static final ResourceKey<BiomeModifier> SPAWN_CRAWLER = registerKey("spawn_crawler");
+    public static final ResourceKey<BiomeModifier> VIRTUOUS_PAGAN = registerKey("spawn_virtuous_pagan");
 
     public static final ResourceKey<BiomeModifier> ADD_LIMBO_CLUMPS = registerKey("add_limbo_clumps");
 
@@ -37,21 +38,6 @@ public class ModBiomeModifiers {
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         var biomes = context.lookup(Registries.BIOME);
-//
-        // This was not needed and caused crashes, I would rather add it in a biome when I need it then set all biomes it goes in here
-        // nvm we are doing it here
-//        context.register(ADD_SOUL_OAK_TREE, new BiomeModifiers.AddFeaturesBiomeModifier(
-//                HolderSet.direct(biomes.getOrThrow(ModBiomes.LIMBO)),
-//                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.SOUL_OAK_TREE_PLACED_KEY)),
-//                GenerationStep.Decoration.VEGETAL_DECORATION
-//                )
-//        );
-
-        context.register(SPAWN_ROCK_ROLLER, new BiomeModifiers.AddSpawnsBiomeModifier(
-
-                HolderSet.direct(biomes.getOrThrow(ModBiomes.ARID_PLAINS)),
-                WeightedList.of(List.of(new Weighted<>(new MobSpawnSettings.SpawnerData(ModEntities.ROCK_ROLLER.get(), 1, 1), 5)))
-        ));
 
         context.register(SPAWN_VIRGILAGER, new BiomeModifiers.AddSpawnsBiomeModifier(
 
@@ -59,11 +45,6 @@ public class ModBiomeModifiers {
                 WeightedList.of(List.of(new Weighted<>(new MobSpawnSettings.SpawnerData(ModEntities.VIRGILAGER.get(), 1, 1), 10)))
         ));
 
-        context.register(SPAWN_CRAWLER, new BiomeModifiers.AddSpawnsBiomeModifier(
-
-                HolderSet.direct(biomes.getOrThrow(ModBiomes.GLUTTONOUS_CAVERNS)),
-                WeightedList.of(List.of(new Weighted<>(new MobSpawnSettings.SpawnerData(ModEntities.CRAWLER.get(), 1, 1), 5)))
-        ));
 
         context.register(ADD_LIMBO_CLUMPS, new BiomeModifiers.AddFeaturesBiomeModifier(
                 HolderSet.direct(biomes.getOrThrow(ModBiomes.LIMBO)),
@@ -71,18 +52,19 @@ public class ModBiomeModifiers {
                         placedFeatures.getOrThrow(ModPlacedFeatures.ANDESITE_CLUMP_PLACED_KEY),
                         placedFeatures.getOrThrow(ModPlacedFeatures.BLACKSTONE_CLUMP_PLACED_KEY),
                         placedFeatures.getOrThrow(ModPlacedFeatures.QUARTZ_CLUMP_PLACED_KEY),
-                        placedFeatures.getOrThrow(ModPlacedFeatures.DIORITE_CLUMP_PLACED_KEY)
+                        placedFeatures.getOrThrow(ModPlacedFeatures.DIORITE_CLUMP_PLACED_KEY),
+                        placedFeatures.getOrThrow(ModPlacedFeatures.DIRT_CLUMP_PLACED_KEY)
                         ),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(ADD_STYX_FLUID, new BiomeModifiers.AddFeaturesBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(ModBiomes.STYX_RIVER)), // The biome it applies to
+                HolderSet.direct(biomes.getOrThrow(ModBiomes.STYX_RIVER)),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.STYX_FLUID_PLACED_KEY)),
-                GenerationStep.Decoration.RAW_GENERATION // Must be RAW_GENERATION for your AirFillFeature!
+                GenerationStep.Decoration.RAW_GENERATION
         ));
 
         context.register(ADD_BOILING_BLOOD, new BiomeModifiers.AddFeaturesBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(ModBiomes.WOOD_OF_SUICIDES)), // Swap to whatever biome needs it
+                HolderSet.direct(biomes.getOrThrow(ModBiomes.WOOD_OF_SUICIDES)),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.BOILING_BLOOD_PLACED_KEY)),
                 GenerationStep.Decoration.RAW_GENERATION
         ));

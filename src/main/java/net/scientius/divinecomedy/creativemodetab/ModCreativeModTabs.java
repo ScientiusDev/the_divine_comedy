@@ -17,11 +17,9 @@ public class ModCreativeModTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, DivineComedy.MODID);
 
     public static final Supplier<CreativeModeTab> DIVINE_COMEDY_TAB = CREATIVE_MODE_TABS.register("divine_comedy_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.INFERNITE.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.VIRGILAGER_SPAWN_EGG.get()))
                     .title(Component.translatable( "creativetab.divinecomedy.divine_comedy"))
                     .displayItems((itemDisplayParameters, output) -> {
-                        output.accept(ModItems.INFERNITE);
-                        output.accept(ModBlocks.INFERNITE_ORE);
 
                         output.accept(ModBlocks.SOUL_OAK_LOG);
                         output.accept(ModBlocks.SOUL_OAK_WOOD);

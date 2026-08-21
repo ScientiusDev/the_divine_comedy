@@ -39,7 +39,7 @@ public class ModBiomeSources extends BiomeSource {
         );
     }
 
-    // 1-Argument Constructor required by RecordCodecBuilder (ModBiomeSources::new)
+
     public ModBiomeSources(List<Layer> layers) {
         super();
         this.layers = layers;
@@ -57,7 +57,7 @@ public class ModBiomeSources extends BiomeSource {
 
     @Override
     public Holder<Biome> getNoiseBiome(int x, int y, int z, Climate.Sampler sampler) {
-        int blockY = y << 2; // Convert quart coordinate to block Y
+        int blockY = y << 2;
         for (Layer layer : layers) {
             if (blockY >= layer.minY() && blockY <= layer.maxY()) {
                 return layer.biome();

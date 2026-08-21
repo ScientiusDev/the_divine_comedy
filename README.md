@@ -1,25 +1,20 @@
+# Divine Comedy
 
-Installation information
-=======
+A Minecraft mod for NeoForge that brings Dante's _Inferno_ into Minecraft as a playable experience.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+This is very much unfinished
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+## Features
+* **New Dimensions:** Descend to Inferno by means of the virgilager or death.
+* **Custom Biomes:** Work yoru way through the 9 layers of hell, facing new mobs and structures as you do.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+## Requirements
+* **Minecraft:** 1.21 (or your target version)
+* **Mod Loader:** NeoForge
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+## Reporting Bugs
+Found a bug or experienced a crash? Please report it 
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+
+## License
+All Rights Reserved.

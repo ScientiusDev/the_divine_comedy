@@ -39,6 +39,5 @@ public class CerebusSleepGoal extends Goal {
 
     @Override
     public void tick() {
-        cerebus.setTarget(null); // belt-and-suspenders: nothing sneaks a target while asleep
-    }
+        cerebus.setTarget(null);}
 }

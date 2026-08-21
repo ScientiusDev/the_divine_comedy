@@ -33,6 +33,7 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLACKSTONE_CLUMPS_KEY = registerKey("blackstone_clump");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANDESITE_CLUMPS_KEY = registerKey("andesite_clump");
     public static final ResourceKey<ConfiguredFeature<?, ?>> DIORITE_CLUMPS_KEY = registerKey("diorite_clump");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DIRT_CLUMPS_KEY = registerKey("dirt_clump");
     public static final ResourceKey<ConfiguredFeature<?, ?>> QUARTZ_PILLAR_KEY = registerKey("quartz_pillar");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> STYX_FLUID_KEY = registerKey("styx_fluid");
@@ -60,6 +61,7 @@ public class ModConfiguredFeatures {
         register(context, ANDESITE_CLUMPS_KEY, Feature.ORE, new OreConfiguration(new BlockMatchTest(Blocks.CALCITE), Blocks.ANDESITE.defaultBlockState(), 50));
         register(context, BLACKSTONE_CLUMPS_KEY, Feature.ORE, new OreConfiguration(new BlockMatchTest(Blocks.CALCITE), Blocks.BLACKSTONE.defaultBlockState(), 50));
         register(context, DIORITE_CLUMPS_KEY, Feature.ORE, new OreConfiguration(new BlockMatchTest(Blocks.CALCITE), Blocks.DIORITE.defaultBlockState(), 50));
+        register(context, DIRT_CLUMPS_KEY, Feature.ORE, new OreConfiguration(new BlockMatchTest(Blocks.CALCITE), Blocks.DIRT.defaultBlockState(), 30));
 
         register(context,QUARTZ_PILLAR_KEY, Feature.BLOCK_COLUMN, new BlockColumnConfiguration(
                 List.of(
