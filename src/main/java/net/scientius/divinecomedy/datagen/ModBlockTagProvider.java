@@ -1,5 +1,7 @@
 package net.scientius.divinecomedy.datagen;
 
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
 import net.scientius.divinecomedy.DivineComedy;
 import net.scientius.divinecomedy.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
@@ -35,7 +37,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.SOUL_OAK_SAPLING.get());
 
         tag(BlockTags.PLANKS)
-                .add(ModBlocks.SOUL_OAK_SAPLING.get());
+                .add(ModBlocks.SOUL_OAK_PLANKS.get());
 
         tag(BlockTags.INFINIBURN_OVERWORLD)
                 .add(ModBlocks.BURNING_COFFIN.get());
@@ -44,4 +46,5 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.INFINIBURN_END)
                 .add(ModBlocks.BURNING_COFFIN.get());
     }
+
 }
