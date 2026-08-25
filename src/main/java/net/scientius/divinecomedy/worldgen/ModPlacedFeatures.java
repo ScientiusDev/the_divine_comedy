@@ -30,6 +30,7 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> BLACKSTONE_CLUMP_PLACED_KEY = registerKey("blackstone_clump_placed_placed");
     public static final ResourceKey<PlacedFeature> DIORITE_CLUMP_PLACED_KEY = registerKey("diorite_clump_placed_placed");
     public static final ResourceKey<PlacedFeature> DIRT_CLUMP_PLACED_KEY = registerKey("dirt_clump_placed_placed");
+    public static final ResourceKey<PlacedFeature> DRIPSTONE_CLUMP_PLACED_KEY = registerKey("dripstone_clump_placed_placed");
 
     public static final ResourceKey<PlacedFeature> STYX_FLUID_PLACED_KEY = registerKey("styx_fluid_placed");
     public static final ResourceKey<PlacedFeature> BOILING_BLOOD_PLACED_KEY = registerKey("boiling_blood_placed");
@@ -76,6 +77,9 @@ public class ModPlacedFeatures {
                 ));
         register(context, DIRT_CLUMP_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.DIRT_CLUMPS_KEY),
                 ModOrePlacements.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.absolute(256), VerticalAnchor.absolute(288))
+                ));
+        register(context, DRIPSTONE_CLUMP_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.DRIPSTONE_CLUMPS_KEY),
+                ModOrePlacements.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.absolute(224), VerticalAnchor.absolute(256))
                 ));
 
         // For Styx River (if its layer is 128 to 160)

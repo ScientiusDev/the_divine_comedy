@@ -16,6 +16,9 @@ import java.util.List;
 public class DivineComedyDataGen {
     @SubscribeEvent
     public static void gatherClientData(GatherDataEvent.Client event) {
+
+        event.createDatapackRegistryObjects(ModDatapackProvider.BUILDER);
+
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
         var lookupProvider = event.getLookupProvider();
@@ -36,9 +39,9 @@ public class DivineComedyDataGen {
                 lookupProvider
         ));
         generator.addProvider(true, new ModDataMapProvider(packOutput, lookupProvider));
-        generator.addProvider(true, new ModDatapackProvider(packOutput, lookupProvider));
 
         generator.addProvider(true, new ModFluidTagsProvider(packOutput, lookupProvider));
+        generator.addProvider(true, new ModAdvancements(packOutput, lookupProvider));
 
     }
 

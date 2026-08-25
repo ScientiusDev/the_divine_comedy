@@ -33,7 +33,20 @@
   "entity.divinecomedy.heretic": "Heretic",
   "entity.divinecomedy.virtuous_pagan": "Virtuous Pagan",
 
+  "advancements.divinecomedy.root.title" : "Divine Comedy",
+  "advancements.divinecomedy.root.description" : "The descent begins...",
+  "advancements.divinecomedy.styx_fluid.title" : "That's Not Water...",
+  "advancements.divinecomedy.styx_fluid.description" : "Fill a bucket with Styx Fluid",
+  "advancements.divinecomedy.boiling_blood.title" : "Other Hot Stuff",
+  "advancements.divinecomedy.boiling_blood.description" : "Fill a bucket with Boiling Blood",
+  "advancements.divinecomedy.second_layer.title" : "Well, Well, Well",
+  "advancements.divinecomedy.second_layer.description" : "Descend to the second layer through a well",
+  "advancements.divinecomedy.cerebus_dead.title" : "The New Top Dog",
+  "advancements.divinecomedy.cerebus_dead.description" : "Defeat Cerebus and show him who's boss",
+  "advancements.divinecomedy.inferno_complete.title" : "Come Back Soon!",
+  "advancements.divinecomedy.inferno_complete.description" : "Find your way back to the overworld. Phew!",
+
   "creativetab.divinecomedy.divine_comedy": "Divine Comedy",
 
-  "divinecomedy.confugrations.descendOnDeath": "Descend on Death"
+  "divinecomedy.configuration.descendOnDeath": "Descend on Death"
 }

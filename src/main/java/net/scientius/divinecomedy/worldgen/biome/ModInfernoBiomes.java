@@ -1,8 +1,13 @@
 package net.scientius.divinecomedy.worldgen.biome;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.features.CaveFeatures;
 import net.minecraft.data.worldgen.placement.TreePlacements;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.level.levelgen.feature.DripstoneClusterFeature;
 import net.scientius.divinecomedy.entity.ModEntities;
 import net.scientius.divinecomedy.worldgen.ModPlacedFeatures;
 import net.minecraft.core.HolderGetter;
@@ -21,11 +26,11 @@ public class ModInfernoBiomes {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(ModEntities.VIRTUOUS_PAGAN.get(), 1, 3))
-                .addMobCharge(ModEntities.VIRTUOUS_PAGAN.get(), 0.5d, 0.4d);
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(ModEntities.VIRTUOUS_PAGAN.get(), 1, 2))
+                .addMobCharge(ModEntities.VIRTUOUS_PAGAN.get(), 2.0d, 1.0d);
 
         spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.SKELETON, 1, 2))
-                .addMobCharge(EntityType.SKELETON, 0.5d, 0.3d);
+                .addMobCharge(EntityType.SKELETON, 2.0d, 1.0d);
 
 
         // Placed features
@@ -60,10 +65,13 @@ public class ModInfernoBiomes {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.BREEZE, 1, 1))
+                .addMobCharge(EntityType.BREEZE, 4.0d, 1.0d);
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
+                placedFeatureGetter.getOrThrow(ResourceKey.create(Registries.PLACED_FEATURE, Identifier.withDefaultNamespace("dripstone_cluster"))));
 
 
         // The settings
@@ -90,7 +98,7 @@ public class ModInfernoBiomes {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
         spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.WITHER_SKELETON, 1, 1))
-                .addMobCharge(EntityType.WITHER_SKELETON, 0.9d, 0.5d);
+                .addMobCharge(EntityType.WITHER_SKELETON, 2.0d, 1.0d);
         spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(ModEntities.CRAWLER.get(), 1, 3))
                 .addMobCharge(ModEntities.CRAWLER.get(), 2.0d, 1.0d);
 
@@ -126,7 +134,8 @@ public class ModInfernoBiomes {
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
-//
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(ModEntities.ROCK_ROLLER.get(), 1, 3))
+                .addMobCharge(ModEntities.ROCK_ROLLER.get(), 2.0d, 1.0d);
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
@@ -155,7 +164,7 @@ public class ModInfernoBiomes {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
         spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.GHAST, 1, 1))
-                .addMobCharge(EntityType.GHAST, 1.0d, 0.5d);
+                .addMobCharge(EntityType.GHAST, 2.0d, 1.0d);
 
 
         BiomeGenerationSettings.Builder biomeBuilder =

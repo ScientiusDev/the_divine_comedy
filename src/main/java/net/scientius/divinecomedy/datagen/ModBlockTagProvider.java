@@ -2,6 +2,7 @@ package net.scientius.divinecomedy.datagen;
 
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.world.level.block.Blocks;
 import net.scientius.divinecomedy.DivineComedy;
 import net.scientius.divinecomedy.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
@@ -45,6 +46,12 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BURNING_COFFIN.get());
         tag(BlockTags.INFINIBURN_END)
                 .add(ModBlocks.BURNING_COFFIN.get());
+
+        // Custom tags
+
+        tag(ModTags.Blocks.WHIRLING_WASTELANDS_REPLACEABLE)
+                .add(Blocks.PALE_MOSS_BLOCK)
+                .add(Blocks.STONE);
     }
 
 }

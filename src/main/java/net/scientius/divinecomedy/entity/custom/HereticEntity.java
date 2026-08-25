@@ -1,6 +1,7 @@
 package net.scientius.divinecomedy.entity.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -87,5 +88,10 @@ public class HereticEntity extends PathfinderMob {
     @Override
     protected @Nullable SoundEvent getDeathSound() {
         return SoundEvents.VINDICATOR_DEATH;
+    }
+
+    @Override
+    protected int getBaseExperienceReward(ServerLevel level) {
+        return 5;
     }
 }

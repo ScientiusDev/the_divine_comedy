@@ -2,6 +2,7 @@ package net.scientius.divinecomedy.entity.custom;
 
 import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -87,5 +88,10 @@ public class CrawlerEntity extends PathfinderMob {
     @Override
     protected void playStepSound(BlockPos pos, BlockState blockState) {
         this.playSound(SoundEvents.SLIME_SQUISH, 0.3f, 0.5f);
+    }
+
+    @Override
+    protected int getBaseExperienceReward(ServerLevel level) {
+        return 5;
     }
 }

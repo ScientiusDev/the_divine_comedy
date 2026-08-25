@@ -28,12 +28,12 @@
   "has_precipitation": false,
   "spawn_costs": {
     "divinecomedy:virtuous_pagan": {
-      "charge": 0.5,
-      "energy_budget": 0.4
+      "charge": 2.0,
+      "energy_budget": 1.0
     },
     "minecraft:skeleton": {
-      "charge": 0.5,
-      "energy_budget": 0.3
+      "charge": 2.0,
+      "energy_budget": 1.0
     }
   },
   "spawners": {
@@ -44,7 +44,7 @@
     "monster": [
       {
         "type": "divinecomedy:virtuous_pagan",
-        "maxCount": 3,
+        "maxCount": 2,
         "minCount": 1,
         "weight": 50
       },

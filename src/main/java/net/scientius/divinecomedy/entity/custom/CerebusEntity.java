@@ -283,4 +283,15 @@ public class CerebusEntity extends PathfinderMob {
 
         return droppedItem;
     }
+
+
+    @Override
+    protected int getBaseExperienceReward(ServerLevel level) {
+        return 100;
+    }
+
+    @Override
+    protected boolean isAlwaysExperienceDropper() {
+        return true;
+    }
 }

@@ -51,7 +51,7 @@ public class ModDimensions {
                 288,
                 BlockTags.INFINIBURN_NETHER,
                 0.7f,
-                new DimensionType.MonsterSettings(ConstantInt.of(0), 7),
+                new DimensionType.MonsterSettings(ConstantInt.of(7), 15),
                 DimensionType.Skybox.NONE,
                 CardinalLighting.Type.DEFAULT,
                 EnvironmentAttributeMap.builder().

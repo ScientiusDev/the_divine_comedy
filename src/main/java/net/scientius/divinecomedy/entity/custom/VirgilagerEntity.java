@@ -3,6 +3,7 @@ package net.scientius.divinecomedy.entity.custom;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.*;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -152,6 +153,11 @@ public class VirgilagerEntity extends PathfinderMob {
     @Override
     protected @Nullable SoundEvent getDeathSound() {
         return SoundEvents.EVOKER_DEATH;
+    }
+
+    @Override
+    protected int getBaseExperienceReward(ServerLevel level) {
+        return 10;
     }
 
 }

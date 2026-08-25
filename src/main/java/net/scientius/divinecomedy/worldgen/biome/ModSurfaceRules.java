@@ -23,6 +23,7 @@ public class ModSurfaceRules {
     private static final SurfaceRules.RuleSource NETHERRACK = makeStateRule(Blocks.NETHERRACK);
     private static final SurfaceRules.RuleSource SAND = makeStateRule(Blocks.SAND);
     private static final SurfaceRules.RuleSource STONE_BRICKS = makeStateRule(Blocks.STONE_BRICKS);
+    private static final SurfaceRules.RuleSource DRIPSTONE = makeStateRule(Blocks.DRIPSTONE_BLOCK);
 
 
     // Now all the custom rules per biome

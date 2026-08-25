@@ -29,6 +29,7 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> VIRTUOUS_PAGAN = registerKey("spawn_virtuous_pagan");
 
     public static final ResourceKey<BiomeModifier> ADD_LIMBO_CLUMPS = registerKey("add_limbo_clumps");
+    public static final ResourceKey<BiomeModifier> ADD_WHIRLING_WASTELANDS_FEATURES = registerKey("add_whirling_wastelands_features");
 
     public static final ResourceKey<BiomeModifier> ADD_STYX_FLUID = registerKey("add_styx_fluid");
     public static final ResourceKey<BiomeModifier> ADD_BOILING_BLOOD = registerKey("add_boiling_blood");
@@ -55,6 +56,13 @@ public class ModBiomeModifiers {
                         placedFeatures.getOrThrow(ModPlacedFeatures.DIORITE_CLUMP_PLACED_KEY),
                         placedFeatures.getOrThrow(ModPlacedFeatures.DIRT_CLUMP_PLACED_KEY)
                         ),
+                GenerationStep.Decoration.UNDERGROUND_ORES));
+
+        context.register(ADD_WHIRLING_WASTELANDS_FEATURES, new BiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(ModBiomes.WHIRLING_WASTELANDS)),
+                HolderSet.direct(
+                        placedFeatures.getOrThrow(ModPlacedFeatures.DRIPSTONE_CLUMP_PLACED_KEY)
+                ),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
         context.register(ADD_STYX_FLUID, new BiomeModifiers.AddFeaturesBiomeModifier(
