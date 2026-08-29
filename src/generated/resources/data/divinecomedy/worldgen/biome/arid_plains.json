@@ -1,5 +1,12 @@
 {
   "attributes": {
+    "minecraft:audio/background_music": {
+      "default": {
+        "max_delay": 24000,
+        "min_delay": 12000,
+        "sound": "divinecomedy:infenro_ambient_music"
+      }
+    },
     "minecraft:visual/fog_color": "#aeb082",
     "minecraft:visual/fog_end_distance": 256.0,
     "minecraft:visual/fog_start_distance": 64.0

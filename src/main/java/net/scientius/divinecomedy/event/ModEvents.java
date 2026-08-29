@@ -60,19 +60,6 @@ public class ModEvents {
         event.register(ModEntities.VIRTUOUS_PAGAN.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PathfinderMob::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
-
-        // I can not for the life of me figure out how to spawn these, even AI be hopeless...
-        event.register(EntityType.SKELETON,
-                (type, level, spawnType, pos, random) ->
-                        level.getLevel().dimension() == ModDimensions.INFERNO_LEVEL_KEY
-                                && PathfinderMob.checkMobSpawnRules(type, level, spawnType, pos, random),
-                RegisterSpawnPlacementsEvent.Operation.OR);
-
-        event.register(EntityType.WITHER_SKELETON,
-                (type, level, spawnType, pos, random) ->
-                        level.getLevel().dimension() == ModDimensions.INFERNO_LEVEL_KEY
-                                && PathfinderMob.checkMobSpawnRules(type, level, spawnType, pos, random),
-                RegisterSpawnPlacementsEvent.Operation.OR);
     }
 
 

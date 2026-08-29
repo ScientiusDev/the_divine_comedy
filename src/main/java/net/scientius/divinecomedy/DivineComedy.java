@@ -6,6 +6,7 @@ import net.scientius.divinecomedy.entity.ModEntities;
 import net.scientius.divinecomedy.fluid.ModFluidTypes;
 import net.scientius.divinecomedy.fluid.ModFluids;
 import net.scientius.divinecomedy.item.ModItems;
+import net.scientius.divinecomedy.sound.ModSounds;
 import net.scientius.divinecomedy.worldgen.dimension.ModBiomeSources;
 import net.scientius.divinecomedy.worldgen.feature.ModFeatures;
 import net.minecraft.world.level.block.Blocks;
@@ -52,6 +53,7 @@ public class DivineComedy {
         ModFluidTypes.register(modEventBus);
 
         ModFluids.register(modEventBus);
+        ModSounds.register(modEventBus);
 
         ModEntities.register(modEventBus);
         // Register ourselves for server and other game events we are interested in.

@@ -294,4 +294,9 @@ public class CerebusEntity extends PathfinderMob {
     protected boolean isAlwaysExperienceDropper() {
         return true;
     }
+
+    @Override
+    public boolean isPushable() {
+        return false;
+    }
 }

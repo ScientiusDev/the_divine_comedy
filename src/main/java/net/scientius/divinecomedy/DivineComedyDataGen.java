@@ -42,6 +42,7 @@ public class DivineComedyDataGen {
 
         generator.addProvider(true, new ModFluidTagsProvider(packOutput, lookupProvider));
         generator.addProvider(true, new ModAdvancements(packOutput, lookupProvider));
+        generator.addProvider(true, new ModSoundsProvider(packOutput));
 
     }
 

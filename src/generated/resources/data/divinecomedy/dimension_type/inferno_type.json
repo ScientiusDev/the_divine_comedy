@@ -1,5 +1,5 @@
 {
-  "ambient_light": 0.7,
+  "ambient_light": 0.4,
   "attributes": {
     "minecraft:gameplay/bed_rule": {
       "can_set_spawn": "never",

@@ -5,10 +5,14 @@ import net.minecraft.data.worldgen.features.CaveFeatures;
 import net.minecraft.data.worldgen.placement.TreePlacements;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.sounds.Music;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.attribute.BackgroundMusic;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.levelgen.feature.DripstoneClusterFeature;
 import net.scientius.divinecomedy.entity.ModEntities;
+import net.scientius.divinecomedy.sound.ModSounds;
 import net.scientius.divinecomedy.worldgen.ModPlacedFeatures;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.world.attribute.EnvironmentAttributes;
@@ -24,8 +28,8 @@ public class ModInfernoBiomes {
 
     public static Biome limbo(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
 
-
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+
         spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(ModEntities.VIRTUOUS_PAGAN.get(), 1, 2))
                 .addMobCharge(ModEntities.VIRTUOUS_PAGAN.get(), 2.0d, 1.0d);
 
@@ -38,7 +42,6 @@ public class ModInfernoBiomes {
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
                 placedFeatureGetter.getOrThrow(TreePlacements.PALE_OAK_CHECKED));
-
 
 
         // The settings
@@ -56,6 +59,8 @@ public class ModInfernoBiomes {
                 .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x808080)
                 .setAttribute(EnvironmentAttributes.FOG_START_DISTANCE, 24.0f)
                 .setAttribute(EnvironmentAttributes.FOG_END_DISTANCE, 64.0f)
+                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(ModSounds.INFERNO_AMBIENT_MUSIC))
+
 
                 .build();
     }
@@ -87,7 +92,7 @@ public class ModInfernoBiomes {
                 .generationSettings(biomeBuilder.build())
                 .mobSpawnSettings(spawnBuilder.build())
                 .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x000000)
-
+                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(ModSounds.INFERNO_AMBIENT_MUSIC))
                 .build();
     }
 
@@ -101,7 +106,6 @@ public class ModInfernoBiomes {
                 .addMobCharge(EntityType.WITHER_SKELETON, 2.0d, 1.0d);
         spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(ModEntities.CRAWLER.get(), 1, 3))
                 .addMobCharge(ModEntities.CRAWLER.get(), 2.0d, 1.0d);
-
 
 
 //
@@ -124,7 +128,7 @@ public class ModInfernoBiomes {
                 .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x292f40)
                 .setAttribute(EnvironmentAttributes.FOG_START_DISTANCE, 64f)
                 .setAttribute(EnvironmentAttributes.FOG_END_DISTANCE, 256f)
-
+                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(ModSounds.INFERNO_AMBIENT_MUSIC))
                 .build();
     }
 
@@ -154,6 +158,7 @@ public class ModInfernoBiomes {
                 .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xaeb082)
                 .setAttribute(EnvironmentAttributes.FOG_START_DISTANCE, 64f)
                 .setAttribute(EnvironmentAttributes.FOG_END_DISTANCE, 256f)
+                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(ModSounds.INFERNO_AMBIENT_MUSIC))
                 .build();
     }
 
@@ -184,6 +189,7 @@ public class ModInfernoBiomes {
                 .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x4f3f43)
                 .setAttribute(EnvironmentAttributes.FOG_START_DISTANCE, 20f)
                 .setAttribute(EnvironmentAttributes.FOG_END_DISTANCE, 64f)
+                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(ModSounds.INFERNO_AMBIENT_MUSIC))
                 .build();
     }
 
@@ -192,8 +198,6 @@ public class ModInfernoBiomes {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-
-
 
 
         BiomeGenerationSettings.Builder biomeBuilder =
@@ -211,7 +215,7 @@ public class ModInfernoBiomes {
                 .generationSettings(biomeBuilder.build())
                 .mobSpawnSettings(spawnBuilder.build())
                 .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x71736f)
-
+                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(ModSounds.INFERNO_AMBIENT_MUSIC))
                 .build();
     }
 
@@ -229,7 +233,6 @@ public class ModInfernoBiomes {
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.SOUL_OAK_TREE_PLACED_KEY);
 
 
-
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(false)
                 .downfall(0.7f)
@@ -241,7 +244,7 @@ public class ModInfernoBiomes {
                         .grassColorOverride(0x0c9999)
                         .foliageColorOverride(0x0c9999).build())
                 .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x96ecf2)
-
+                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(ModSounds.INFERNO_AMBIENT_MUSIC))
                 .build();
     }
 
@@ -266,7 +269,7 @@ public class ModInfernoBiomes {
                 .generationSettings(biomeBuilder.build())
                 .mobSpawnSettings(spawnBuilder.build())
                 .setAttribute(EnvironmentAttributes.FOG_COLOR, 0xa35543)
-
+                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(ModSounds.INFERNO_AMBIENT_MUSIC))
                 .build();
     }
 
@@ -292,7 +295,7 @@ public class ModInfernoBiomes {
                 .generationSettings(biomeBuilder.build())
                 .mobSpawnSettings(spawnBuilder.build())
                 .setAttribute(EnvironmentAttributes.FOG_COLOR, 0x08012b)
-
+                .setAttribute(EnvironmentAttributes.BACKGROUND_MUSIC, new BackgroundMusic(ModSounds.INFERNO_AMBIENT_MUSIC))
                 .build();
     }
 }

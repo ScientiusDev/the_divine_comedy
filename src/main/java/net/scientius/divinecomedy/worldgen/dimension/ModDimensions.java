@@ -50,7 +50,7 @@ public class ModDimensions {
                 288,
                 288,
                 BlockTags.INFINIBURN_NETHER,
-                0.7f,
+                0.4f,
                 new DimensionType.MonsterSettings(ConstantInt.of(7), 15),
                 DimensionType.Skybox.NONE,
                 CardinalLighting.Type.DEFAULT,
