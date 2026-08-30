@@ -99,7 +99,7 @@ public class ModChestLootTableProvider implements LootTableSubProvider {
                 ModLootTables.LIMBO_VILLAGE,
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool() // Food-ish one
-                                .setRolls(UniformGenerator.between(0.0f, 4.0f))
+                                .setRolls(UniformGenerator.between(2.0f, 4.0f))
                                 .add(LootItem.lootTableItem(Items.PALE_OAK_SAPLING)
                                         .apply(SetItemCountFunction.setCount(
                                                 UniformGenerator.between(2.0f, 4.0f)))
@@ -120,7 +120,7 @@ public class ModChestLootTableProvider implements LootTableSubProvider {
                                         .setWeight(20)))
 
                         .withPool(LootPool.lootPool() // nice materials one
-                                .setRolls(UniformGenerator.between(0.0f, 3.0f))
+                                .setRolls(UniformGenerator.between(0.0f, 2.0f))
                                 .add(LootItem.lootTableItem(Items.IRON_NUGGET)
                                         .apply(SetItemCountFunction.setCount(
                                                 UniformGenerator.between(8.0f, 17.0f)))
@@ -151,7 +151,7 @@ public class ModChestLootTableProvider implements LootTableSubProvider {
         biConsumer.accept(ModLootTables.HERETIC_CEMETERY,
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool() //Materials for anchor ooohhh
-                                .setRolls(UniformGenerator.between(1.0f, 4.0f))
+                                .setRolls(UniformGenerator.between(2.0f, 4.0f))
                                 .add(LootItem.lootTableItem(Items.GLOWSTONE_DUST)
                                         .apply(SetItemCountFunction.setCount(
                                                 UniformGenerator.between(1.0f, 4.0f)))

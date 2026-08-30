@@ -25,21 +25,23 @@
     [],
     [],
     [],
-    [],
+    [
+      "minecraft:ore_gold_extra"
+    ],
     [],
     [],
     [
-      "minecraft:pale_oak_checked"
+      "divinecomedy:custom_pale_oak_tree_placed"
     ]
   ],
   "has_precipitation": false,
   "spawn_costs": {
     "divinecomedy:virtuous_pagan": {
-      "charge": 2.0,
+      "charge": 1.5,
       "energy_budget": 1.0
     },
     "minecraft:skeleton": {
-      "charge": 2.0,
+      "charge": 1.5,
       "energy_budget": 1.0
     }
   },

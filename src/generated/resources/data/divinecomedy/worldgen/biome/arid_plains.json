@@ -18,11 +18,21 @@
     "grass_color": "#717871",
     "water_color": "#3f76e4"
   },
-  "features": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:ore_iron_upper"
+    ]
+  ],
   "has_precipitation": false,
   "spawn_costs": {
     "divinecomedy:rock_roller": {
-      "charge": 2.0,
+      "charge": 1.5,
       "energy_budget": 1.0
     }
   },
@@ -34,7 +44,7 @@
     "monster": [
       {
         "type": "divinecomedy:rock_roller",
-        "maxCount": 3,
+        "maxCount": 1,
         "minCount": 1,
         "weight": 50
       }

@@ -1,5 +1,6 @@
 package net.scientius.divinecomedy.datagen;
 
+import net.minecraft.world.level.block.Block;
 import net.scientius.divinecomedy.DivineComedy;
 import net.scientius.divinecomedy.block.ModBlocks;
 import net.scientius.divinecomedy.block.custom.BurningCoffinBlock;
@@ -17,10 +18,14 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.state.properties.BedPart;
 
+import static net.minecraft.client.data.models.BlockModelGenerators.createSimpleBlock;
+import static net.minecraft.client.data.models.BlockModelGenerators.plainVariant;
+
 public class ModModelProvider extends ModelProvider {
     public ModModelProvider(PackOutput output) {
         super(output, DivineComedy.MODID);
     }
+
 
     @Override
     protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
@@ -54,7 +59,7 @@ public class ModModelProvider extends ModelProvider {
         blockModels.woodProvider(ModBlocks.SOUL_OAK_LOG.get()).logWithHorizontal(ModBlocks.SOUL_OAK_LOG.get()).wood(ModBlocks.SOUL_OAK_WOOD.get());
         blockModels.woodProvider(ModBlocks.STRIPPED_SOUL_OAK_LOG.get()).logWithHorizontal(ModBlocks.STRIPPED_SOUL_OAK_LOG.get()).wood(ModBlocks.STRIPPED_SOUL_OAK_WOOD.get());
 
-        blockModels.createTintedLeaves(ModBlocks.SOUL_OAK_LEAVES.get(), TexturedModel.LEAVES, -12012255);
+        blockModels.createTintedLeaves(ModBlocks.SOUL_OAK_LEAVES.get(), TexturedModel.LEAVES, 16777215);
         blockModels.createPlantWithDefaultItem(ModBlocks.SOUL_OAK_SAPLING.get(), ModBlocks.POTTED_SOUL_OAK_SAPLING.get(), BlockModelGenerators.PlantType.TINTED);
 
         blockModels.createNonTemplateModelBlock((ModBlocks.STYX_FLUID_BLOCK.get()));
@@ -63,8 +68,8 @@ public class ModModelProvider extends ModelProvider {
         Identifier footModel = Identifier.fromNamespaceAndPath(DivineComedy.MODID, "block/burning_coffin_foot");
         Identifier headModel = Identifier.fromNamespaceAndPath(DivineComedy.MODID, "block/burning_coffin_head");
 
-        var footVariant = BlockModelGenerators.plainVariant(footModel);
-        var headVariant = BlockModelGenerators.plainVariant(headModel);
+        var footVariant = plainVariant(footModel);
+        var headVariant = plainVariant(headModel);
 
         blockModels.blockStateOutput.accept(
                 MultiVariantGenerator.dispatch(ModBlocks.BURNING_COFFIN.get())

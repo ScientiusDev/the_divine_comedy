@@ -23,7 +23,9 @@
     [],
     [],
     [],
-    [],
+    [
+      "minecraft:ore_iron_upper"
+    ],
     [],
     [],
     [

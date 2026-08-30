@@ -16,15 +16,47 @@
     "grass_color": "#717871",
     "water_color": "#3f76e4"
   },
-  "features": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:ore_diamond"
+    ]
+  ],
   "has_precipitation": false,
-  "spawn_costs": {},
+  "spawn_costs": {
+    "minecraft:enderman": {
+      "charge": 1.5,
+      "energy_budget": 1.0
+    },
+    "minecraft:skeleton": {
+      "charge": 1.5,
+      "energy_budget": 1.0
+    }
+  },
   "spawners": {
     "ambient": [],
     "axolotls": [],
     "creature": [],
     "misc": [],
-    "monster": [],
+    "monster": [
+      {
+        "type": "minecraft:skeleton",
+        "maxCount": 2,
+        "minCount": 1,
+        "weight": 50
+      },
+      {
+        "type": "minecraft:enderman",
+        "maxCount": 1,
+        "minCount": 1,
+        "weight": 50
+      }
+    ],
     "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": []

@@ -1,10 +1,17 @@
 package net.scientius.divinecomedy.event;
 
-import net.minecraft.resources.ResourceKey;
+
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.monster.skeleton.Skeleton;
+import net.minecraft.world.entity.monster.skeleton.Stray;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.level.Level;
-import net.neoforged.neoforge.event.entity.living.LivingDeathEvent;
+import net.minecraft.world.entity.monster.Monster;
+import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
+import net.neoforged.neoforge.event.entity.living.MobSpawnEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.scientius.divinecomedy.Config;
 import net.scientius.divinecomedy.DivineComedy;
@@ -20,7 +27,11 @@ import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.scientius.divinecomedy.util.InfernoTeleporter;
+import net.scientius.divinecomedy.worldgen.biome.ModBiomes;
 import net.scientius.divinecomedy.worldgen.dimension.ModDimensions;
+
+import java.util.List;
+import java.util.Scanner;
 
 @EventBusSubscriber(modid = DivineComedy.MODID)
 public class ModEvents {
@@ -60,8 +71,8 @@ public class ModEvents {
         event.register(ModEntities.VIRTUOUS_PAGAN.get(), SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 PathfinderMob::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
-    }
 
+    }
 
 
     @SubscribeEvent
@@ -79,5 +90,28 @@ public class ModEvents {
         }
     }
 
+
+    @SubscribeEvent
+    public static void onEntityJoin(EntityJoinLevelEvent event) {
+        if (event.getLevel().isClientSide()) return;
+
+        if (event.getEntity().getType() == EntityType.SKELETON
+                && event.getLevel().getBiome(event.getEntity().getOnPos()).is(ModBiomes.FROZEN_DEPTHS)) {
+
+            Skeleton oldSkeleton = (Skeleton) event.getEntity();
+            ServerLevel level = (ServerLevel) event.getLevel();
+
+            Stray stray = EntityType.STRAY.create(level, EntitySpawnReason.CONVERSION);
+            if (stray != null) {
+                stray.setPos(oldSkeleton.getX(), oldSkeleton.getY(), oldSkeleton.getZ()
+                );
+                stray.finalizeSpawn(level, level.getCurrentDifficultyAt(oldSkeleton.blockPosition()),
+                        EntitySpawnReason.CONVERSION, null);
+
+                event.setCanceled(true);
+                level.addFreshEntity(stray);
+            }
+        }
+    }
 
 }

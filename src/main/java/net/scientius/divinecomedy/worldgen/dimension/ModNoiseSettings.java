@@ -27,7 +27,7 @@ public class ModNoiseSettings {
 
         context.register(INFERNO, new NoiseGeneratorSettings(
                 new NoiseSettings(0, 288, 1, 2),
-                Blocks.NETHERRACK.defaultBlockState(),
+                Blocks.STONE.defaultBlockState(),
                 Blocks.AIR.defaultBlockState(),
                 buildRouter(noises),
                 ModSurfaceRules.makeInfernoRules(),

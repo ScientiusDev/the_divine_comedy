@@ -2,6 +2,9 @@ package net.scientius.divinecomedy.worldgen.biome;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.features.CaveFeatures;
+import net.minecraft.data.worldgen.features.NetherFeatures;
+import net.minecraft.data.worldgen.features.OreFeatures;
+import net.minecraft.data.worldgen.placement.OrePlacements;
 import net.minecraft.data.worldgen.placement.TreePlacements;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
@@ -31,17 +34,19 @@ public class ModInfernoBiomes {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
         spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(ModEntities.VIRTUOUS_PAGAN.get(), 1, 2))
-                .addMobCharge(ModEntities.VIRTUOUS_PAGAN.get(), 2.0d, 1.0d);
+                .addMobCharge(ModEntities.VIRTUOUS_PAGAN.get(), 1.5d, 1.0d);
 
         spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.SKELETON, 1, 2))
-                .addMobCharge(EntityType.SKELETON, 2.0d, 1.0d);
+                .addMobCharge(EntityType.SKELETON, 1.5d, 1.0d);
 
 
         // Placed features
 
         BiomeGenerationSettings.Builder biomeBuilder = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
+                OrePlacements.ORE_GOLD_EXTRA);
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
-                placedFeatureGetter.getOrThrow(TreePlacements.PALE_OAK_CHECKED));
+                ModPlacedFeatures.CUSTOM_PALE_OAK_TREE_PLACED_KEY);
 
 
         // The settings
@@ -70,11 +75,14 @@ public class ModInfernoBiomes {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
+
         spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.BREEZE, 1, 1))
-                .addMobCharge(EntityType.BREEZE, 4.0d, 1.0d);
+                .addMobCharge(EntityType.BREEZE, 1.5d, 1.0d);
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
+                OrePlacements.ORE_GOLD_EXTRA);
         biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
                 placedFeatureGetter.getOrThrow(ResourceKey.create(Registries.PLACED_FEATURE, Identifier.withDefaultNamespace("dripstone_cluster"))));
 
@@ -103,9 +111,10 @@ public class ModInfernoBiomes {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
         spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.WITHER_SKELETON, 1, 1))
-                .addMobCharge(EntityType.WITHER_SKELETON, 2.0d, 1.0d);
+                .addMobCharge(EntityType.WITHER_SKELETON, 1.5d, 1.0d);
+
         spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(ModEntities.CRAWLER.get(), 1, 3))
-                .addMobCharge(ModEntities.CRAWLER.get(), 2.0d, 1.0d);
+                .addMobCharge(ModEntities.CRAWLER.get(), 1.5d, 1.0d);
 
 
 //
@@ -113,6 +122,12 @@ public class ModInfernoBiomes {
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
+                OrePlacements.ORE_GOLD_EXTRA);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
+                ModPlacedFeatures.STYX_MUDDY_ROOTS_KEY);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
+                ModPlacedFeatures.STYX_FLUID_BLOCK_KEY);
 
 
         return new Biome.BiomeBuilder()
@@ -138,12 +153,13 @@ public class ModInfernoBiomes {
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
-        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(ModEntities.ROCK_ROLLER.get(), 1, 3))
-                .addMobCharge(ModEntities.ROCK_ROLLER.get(), 2.0d, 1.0d);
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(ModEntities.ROCK_ROLLER.get(), 1, 1))
+                .addMobCharge(ModEntities.ROCK_ROLLER.get(), 1.5d, 1.0d);
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
+                OrePlacements.ORE_IRON_UPPER);
 
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(false)
@@ -169,12 +185,13 @@ public class ModInfernoBiomes {
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
         spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.GHAST, 1, 1))
-                .addMobCharge(EntityType.GHAST, 2.0d, 1.0d);
+                .addMobCharge(EntityType.GHAST, 1.5d, 1.0d);
 
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
+                OrePlacements.ORE_IRON_UPPER);
 
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(false)
@@ -199,10 +216,13 @@ public class ModInfernoBiomes {
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.BLAZE, 1, 2))
+                .addMobCharge(EntityType.BLAZE, 1.5d, 1.0d);
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
-
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
+                OrePlacements.ORE_IRON_UPPER);
 
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(false)
@@ -224,10 +244,10 @@ public class ModInfernoBiomes {
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
-        // Placed features
-
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
+                OrePlacements.ORE_IRON_UPPER);
 
 
         biomeBuilder.addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.SOUL_OAK_TREE_PLACED_KEY);
@@ -253,10 +273,15 @@ public class ModInfernoBiomes {
 
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
-
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.CREEPER, 1, 1))
+                .addMobCharge(EntityType.CREEPER, 1.5d, 1.0d);
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
+                ModPlacedFeatures.INFESTED_CLUMP_PLACED_KEY);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
+                OrePlacements.ORE_IRON_UPPER);
 
         return new Biome.BiomeBuilder()
                 .hasPrecipitation(false)
@@ -279,9 +304,16 @@ public class ModInfernoBiomes {
 
         MobSpawnSettings.Builder spawnBuilder = new MobSpawnSettings.Builder();
 
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.SKELETON, 1, 2))
+                .addMobCharge(EntityType.SKELETON, 1.5d, 1.0d);
+
+        spawnBuilder.addSpawn(MobCategory.MONSTER, 50, new MobSpawnSettings.SpawnerData(EntityType.ENDERMAN, 1, 1))
+                .addMobCharge(EntityType.ENDERMAN, 1.5d, 1.0d);
 
         BiomeGenerationSettings.Builder biomeBuilder =
                 new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter);
+        biomeBuilder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
+                OrePlacements.ORE_DIAMOND);
 
 
         return new Biome.BiomeBuilder()

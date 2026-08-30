@@ -31,6 +31,10 @@ public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> DIORITE_CLUMP_PLACED_KEY = registerKey("diorite_clump_placed_placed");
     public static final ResourceKey<PlacedFeature> DIRT_CLUMP_PLACED_KEY = registerKey("dirt_clump_placed_placed");
     public static final ResourceKey<PlacedFeature> DRIPSTONE_CLUMP_PLACED_KEY = registerKey("dripstone_clump_placed_placed");
+    public static final ResourceKey<PlacedFeature> INFESTED_CLUMP_PLACED_KEY = registerKey("infested_clump_placed_placed");
+
+    public static final ResourceKey<PlacedFeature> STYX_MUDDY_ROOTS_KEY = registerKey("styx_muddy_roots_placed_placed");
+    public static final ResourceKey<PlacedFeature> STYX_FLUID_BLOCK_KEY = registerKey("styx_fluid_block_placed_placed");
 
     public static final ResourceKey<PlacedFeature> STYX_FLUID_PLACED_KEY = registerKey("styx_fluid_placed");
     public static final ResourceKey<PlacedFeature> BOILING_BLOOD_PLACED_KEY = registerKey("boiling_blood_placed");
@@ -52,15 +56,13 @@ public class ModPlacedFeatures {
                         BiomeFilter.biome()
                 ));
 
-        register(context, CUSTOM_PALE_OAK_TREE_PLACED_KEY, configuredFeatures.getOrThrow(TreeFeatures.PALE_OAK),
+        register(context, CUSTOM_PALE_OAK_TREE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.CUSTOM_PALE_OAK_KEY),
                 List.of(
                         PlacementUtils.countExtra(8, 0.2f, 4),
                         InSquarePlacement.spread(),
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(260), VerticalAnchor.absolute(267)),
                         BlockPredicateFilter.forPredicate(
-                                BlockPredicate.wouldSurvive(Blocks.PALE_OAK_SAPLING.defaultBlockState(), new Vec3i(0, -1, 0))),
-                        BiomeFilter.biome()
-                ));
+                                BlockPredicate.matchesBlocks(new Vec3i(0, -1, 0), Blocks.DIRT)), BiomeFilter.biome()));
 
 
         register(context, QUARTZ_CLUMP_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.QUARTZ_CLUMPS_KEY),
@@ -81,22 +83,41 @@ public class ModPlacedFeatures {
         register(context, DRIPSTONE_CLUMP_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.DRIPSTONE_CLUMPS_KEY),
                 ModOrePlacements.commonOrePlacement(1, HeightRangePlacement.uniform(VerticalAnchor.absolute(224), VerticalAnchor.absolute(256))
                 ));
+        register(context, INFESTED_CLUMP_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.INFESTED_CLUMPS_KEY),
+                ModOrePlacements.rareOrePlacement(2, HeightRangePlacement.uniform(VerticalAnchor.absolute(32), VerticalAnchor.absolute(64))
+                ));
 
-        // For Styx River (if its layer is 128 to 160)
+       register(context, STYX_MUDDY_ROOTS_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.STYX_MUDDY_ROOTS),
+               List.of(
+                       CountPlacement.of(4),
+                       InSquarePlacement.spread(),
+                       HeightRangePlacement.uniform(VerticalAnchor.absolute(196), VerticalAnchor.absolute(204)),
+                       BiomeFilter.biome()
+                       ));
+
+        register(context, STYX_FLUID_BLOCK_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.STYX_FLUID_BLOCK),
+                List.of(
+                        CountPlacement.of(4),
+                        InSquarePlacement.spread(),
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(196), VerticalAnchor.absolute(204)),
+                        BiomeFilter.biome()
+                ));
+
+
         register(context, STYX_FLUID_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.STYX_FLUID_KEY),
                 List.of(
                         CountPlacement.of(1),
                         InSquarePlacement.spread(),
-                        HeightRangePlacement.uniform(VerticalAnchor.absolute(140), VerticalAnchor.absolute(150)), // MATCH YOUR LAYER BOUNDS!
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(140), VerticalAnchor.absolute(150)),
                         BiomeFilter.biome()
                 ));
 
-// For Boiling Blood / Wood of Suicides (if its layer is a different range, e.g., 64 to 96)
+
         register(context, BOILING_BLOOD_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.BOILING_BLOOD_KEY),
                 List.of(
                         CountPlacement.of(1),
                         InSquarePlacement.spread(),
-                        HeightRangePlacement.uniform(VerticalAnchor.absolute(70), VerticalAnchor.absolute(80)), // MATCH THAT LAYER'S BOUNDS!
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(70), VerticalAnchor.absolute(80)),
                         BiomeFilter.biome()
                 ));
     }

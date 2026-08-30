@@ -18,15 +18,29 @@
     "grass_color": "#717871",
     "water_color": "#3f76e4"
   },
-  "features": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "minecraft:ore_gold_extra"
+    ],
+    [
+      "divinecomedy:styx_muddy_roots_placed_placed",
+      "divinecomedy:styx_fluid_block_placed_placed"
+    ]
+  ],
   "has_precipitation": true,
   "spawn_costs": {
     "divinecomedy:crawler": {
-      "charge": 2.0,
+      "charge": 1.5,
       "energy_budget": 1.0
     },
     "minecraft:wither_skeleton": {
-      "charge": 2.0,
+      "charge": 1.5,
       "energy_budget": 1.0
     }
   },

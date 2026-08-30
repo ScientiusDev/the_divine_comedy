@@ -20,6 +20,7 @@ public class ModSurfaceRules {
     private static final SurfaceRules.RuleSource STONE = makeStateRule(Blocks.STONE);
     private static final SurfaceRules.RuleSource PACKED_MUD = makeStateRule(Blocks.PACKED_MUD);
     private static final SurfaceRules.RuleSource COARSE_DIRT = makeStateRule(Blocks.COARSE_DIRT);
+    private static final SurfaceRules.RuleSource DIRT = makeStateRule(Blocks.DIRT);
     private static final SurfaceRules.RuleSource NETHERRACK = makeStateRule(Blocks.NETHERRACK);
     private static final SurfaceRules.RuleSource SAND = makeStateRule(Blocks.SAND);
     private static final SurfaceRules.RuleSource STONE_BRICKS = makeStateRule(Blocks.STONE_BRICKS);
@@ -31,7 +32,7 @@ public class ModSurfaceRules {
     public static SurfaceRules.RuleSource makeLimboRules() {
 
         return SurfaceRules.sequence(
-                SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, CALCITE),
+                SurfaceRules.ifTrue(SurfaceRules.ON_FLOOR, CALCITE), // Switch back to calcite from dirt before releasing!!!
                 SurfaceRules.ifTrue(SurfaceRules.UNDER_FLOOR, CALCITE),
                 SurfaceRules.ifTrue(SurfaceRules.ON_CEILING, CALCITE),
                 SurfaceRules.ifTrue(SurfaceRules.UNDER_CEILING, CALCITE)
