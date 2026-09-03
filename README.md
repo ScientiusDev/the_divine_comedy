@@ -9,7 +9,7 @@ This is very much unfinished and still a work in progress.
 * **Custom Biomes:** Work your way through the 9 layers of hell, facing new mobs and structures as you do.
 
 ## Requirements
-* **Minecraft:** 1.21 (or your target version)
+* **Minecraft:** 26.1
 * **Mod Loader:** NeoForge
 
 ## License
